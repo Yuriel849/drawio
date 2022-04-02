@@ -515,7 +515,7 @@
 
 		this.entries = [{title: mxResources.get('standard'), entries: stdEntries},
             			{title: mxResources.get('software'),
-            			entries: [{title: 'Active Directory', id: 'active_directory', image: IMAGE_PATH + '/sidebar-active_directory.png'},
+            			entries: [
 								{title: mxResources.get('android'), id: 'android', image: IMAGE_PATH + '/sidebar-android.png'},
 								{title: 'Atlassian', id: 'atlassian', image: IMAGE_PATH + '/sidebar-atlassian.png'},
 								{title: mxResources.get('bootstrap'), id: 'bootstrap', image: IMAGE_PATH + '/sidebar-bootstrap.png'},
@@ -1188,7 +1188,6 @@
 		this.setCurrentSearchEntryLibrary();
 
 		this.addFlowchartPalette();
-		this.addActiveDirectoryPalette();
 		this.addAndroidPalette();
 		this.addAtlassianPalette();
 		this.addBootstrapPalette();
