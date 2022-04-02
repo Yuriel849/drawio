@@ -511,12 +511,6 @@
 		}
 
 		this.entries = [{title: mxResources.get('standard'), entries: stdEntries},
-            			{title: mxResources.get('software'),
-            			entries: [
-								{title: mxResources.get('mockups'), id: 'mockups', image: IMAGE_PATH + '/sidebar-mockups.png'},
-								{title: 'Sitemap', id: 'sitemap', image: IMAGE_PATH + '/sidebar-sitemap.png'},
-								{title: mxResources.get('uml') + ' 2.5', id: 'uml25', image: IMAGE_PATH + '/sidebar-uml25.png'},
-								{title: mxResources.get('uml'), id: 'uml', image: IMAGE_PATH + '/sidebar-uml.png'}]},
             			{title: mxResources.get('networking'),
             			entries: [{title: 'Allied Telesis', id: 'allied_telesis', image: IMAGE_PATH + '/sidebar-allied_telesis.png'},
 								{title: 'AWS17', id: 'aws3', image: IMAGE_PATH + '/sidebar-aws3.png'},
@@ -1077,10 +1071,6 @@
 		this.addArrows2Palette();
 		this.setCurrentSearchEntryLibrary();
 		this.addKubernetesPalette();
-		this.addMockupPalette();
-		this.addSitemapPalette();
-		this.addUml25Palette();
-		this.addUmlPalette(false);
 		this.addAlliedTelesisPalette();
 		this.addAWS3Palette();
 		this.addAWS4bPalette();
