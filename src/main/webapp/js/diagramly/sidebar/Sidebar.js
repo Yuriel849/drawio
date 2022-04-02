@@ -1036,7 +1036,6 @@
 		this.addAdvancedPalette(false);
 		this.addBasicPalette();
 		this.setCurrentSearchEntryLibrary();
-		this.addMSCAEPalette();
 		this.addInfographicPalette();
 		this.addEipPalette();
 		this.addElectricalPalette();
