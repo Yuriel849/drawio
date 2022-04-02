@@ -513,8 +513,6 @@
 		this.entries = [{title: mxResources.get('standard'), entries: stdEntries},
             			{title: mxResources.get('software'),
             			entries: [
-								{title: mxResources.get('entityRelation'), id: 'er', image: IMAGE_PATH + '/sidebar-er.png'},
-								{title: mxResources.get('ios'), id: 'ios', image: IMAGE_PATH + '/sidebar-ios.png'},
 								{title: mxResources.get('mockups'), id: 'mockups', image: IMAGE_PATH + '/sidebar-mockups.png'},
 								{title: 'Sitemap', id: 'sitemap', image: IMAGE_PATH + '/sidebar-sitemap.png'},
 								{title: mxResources.get('uml') + ' 2.5', id: 'uml25', image: IMAGE_PATH + '/sidebar-uml25.png'},
@@ -1078,9 +1076,6 @@
 				null, null, null, null, null, 'arrows');
 		this.addArrows2Palette();
 		this.setCurrentSearchEntryLibrary();
-		this.addErPalette();
-		this.addIos7Palette();
-		this.addIosPalette();
 		this.addKubernetesPalette();
 		this.addMockupPalette();
 		this.addSitemapPalette();
