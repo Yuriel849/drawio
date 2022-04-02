@@ -510,29 +510,6 @@
 		}
 
 		this.entries = [{title: mxResources.get('standard'), entries: stdEntries},
-            			{title: mxResources.get('networking'),
-            			entries: [{title: 'Allied Telesis', id: 'allied_telesis', image: IMAGE_PATH + '/sidebar-allied_telesis.png'},
-								{title: 'AWS17', id: 'aws3', image: IMAGE_PATH + '/sidebar-aws3.png'},
-								{title: 'AWS18', id: 'aws4b', image: IMAGE_PATH + '/sidebar-aws4b.png'},
-								{title: 'AWS19', id: 'aws4', image: IMAGE_PATH + '/sidebar-aws4.png'},
-								// TODO: Add isometric containers  		                          
-								{title: mxResources.get('aws3d'), id: 'aws3d', image: IMAGE_PATH + '/sidebar-aws3d.png'},
-								{title: mxResources.get('azure'), id: 'azure2', image: IMAGE_PATH + '/sidebar-azure.png'},
-								{title: 'Cloud & Enterprise', id: 'mscae', image: IMAGE_PATH + '/sidebar-mscae.png'},
-								{title: mxResources.get('cisco'), id: 'cisco', image: IMAGE_PATH + '/sidebar-cisco.png'},
-								{title: 'Cisco19', id: 'cisco19', image: IMAGE_PATH + '/sidebar-cisco19.png'},
-								{title: 'Cisco Safe', id: 'cisco_safe', image: IMAGE_PATH + '/sidebar-cisco_safe.png'},
-								{title: 'Cumulus', id: 'cumulus', image: IMAGE_PATH + '/sidebar-cumulus.png'},
-								{title: 'Citrix', id: 'citrix', image: IMAGE_PATH + '/sidebar-citrix.png'},
-								{title: 'Google Cloud Platform', id: 'gcp2', image: IMAGE_PATH + '/sidebar-gcp2.png'},
-								{title: 'GCP Icons', id: 'gcpicons', image: IMAGE_PATH + '/sidebar-gcpicons.png'},
-								{title: 'IBM', id: 'ibm', image: IMAGE_PATH + '/sidebar-ibm.png'},
-								{title: 'Kubernetes', id: 'kubernetes', image: IMAGE_PATH + '/sidebar-kubernetes.png'},
-								{title: 'Network', id: 'network', image: IMAGE_PATH + '/sidebar-network.png'},
-								{title: 'Office', id: 'office', image: IMAGE_PATH + '/sidebar-office.png'},
-								{title: mxResources.get('rack'), id: 'rack', image: IMAGE_PATH + '/sidebar-rack.png'},
-								{title: 'Veeam', id: 'veeam2', image: IMAGE_PATH + '/sidebar-veeam.png'},
-								{title: 'VMware', id: 'vvd', image: IMAGE_PATH + '/sidebar-vvd.png'}]},
             			{title: mxResources.get('other'),
             			entries: [{title: mxResources.get('cabinets'), id: 'cabinets', image: IMAGE_PATH + '/sidebar-cabinets.png'},
 								{title: 'Infographic', id: 'infographic', image: IMAGE_PATH + '/sidebar-infographic.png'},
@@ -1059,30 +1036,7 @@
 		this.addAdvancedPalette(false);
 		this.addBasicPalette();
 		this.setCurrentSearchEntryLibrary();
-		this.addKubernetesPalette();
-		this.addAlliedTelesisPalette();
-		this.addAWS3Palette();
-		this.addAWS4bPalette();
-		this.addAWS4Palette();
-		this.addAWS3DPalette();
-		this.addAzurePalette();
-		this.addAzure2Palette();
 		this.addMSCAEPalette();
-		this.addCiscoPalette(cisco, dir);
-		this.addCisco19Palette();
-		this.addCiscoSafePalette();
-		this.addCumulusPalette();
-		this.addCitrixPalette();
-		this.addGCP2Palette();
-		this.addGCPIconsPalette();
-		this.addIBMPalette();
-		this.addNetworkPalette();
-		this.addOfficePalette();
-		this.addRackPalette(rack, dir);
-		this.addVeeamPalette();
-		this.addVeeam2Palette();
-		this.addVVDPalette();
-		this.addCabinetsPalette();
 		this.addInfographicPalette();
 		this.addEipPalette();
 		this.addElectricalPalette();
