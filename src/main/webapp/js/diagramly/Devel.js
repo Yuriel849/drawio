@@ -178,7 +178,6 @@ mxscript(geBasePath +'/Dialogs.js');
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar.js');
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar-Advanced.js');
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar-AlliedTelesis.js');
-mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar-Arrows2.js');
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar-AWS.js');
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar-AWS3.js');
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar-AWS3D.js');

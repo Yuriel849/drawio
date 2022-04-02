@@ -98,14 +98,6 @@ Sidebar.prototype.init = function()
 	this.addMiscPalette(false);
 	this.addAdvancedPalette(false);
 	this.addBasicPalette(dir);
-	
-	this.setCurrentSearchEntryLibrary('arrows');
-	this.addStencilPalette('arrows', mxResources.get('arrows'), dir + '/arrows.xml',
-		';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
-	this.setCurrentSearchEntryLibrary();
-	
-	this.setCurrentSearchEntryLibrary();
-	
 	this.setCurrentSearchEntryLibrary();
 };
 
