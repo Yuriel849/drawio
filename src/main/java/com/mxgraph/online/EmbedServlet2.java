@@ -127,8 +127,6 @@ public class EmbedServlet2 extends HttpServlet
 		libraries.put("ios7ui",
 				new String[] { SHAPES_PATH + "/ios7/mxIOS7Ui.js",
 						STENCIL_PATH + "/ios7/misc.xml" });
-		libraries.put("android", new String[] { SHAPES_PATH + "/mxAndroid.js",
-				STENCIL_PATH + "electrical/transmission" });
 		libraries.put("electrical/transmission",
 				new String[] { SHAPES_PATH + "/mxElectrical.js",
 						STENCIL_PATH + "/electrical/transmission.xml" });
