@@ -85,18 +85,8 @@
 		<jscomp compilationLevel="simple" debug="false" forceRecompile="true" output="${basedir}/sidebar.min.js">
 			<sources dir="${war.dir}/js/diagramly/sidebar">
 				<file name="Sidebar.js" />
-				<file name="Sidebar-Advanced.js" />
 				<file name="Sidebar-Basic.js" />
-				<file name="Sidebar-EIP.js" />
 				<file name="Sidebar-Electrical.js" />
-				<file name="Sidebar-Floorplan.js" />
-				<file name="Sidebar-FluidPower.js" />
-				<file name="Sidebar-Gmdl.js" />
-				<file name="Sidebar-Infographic.js" />
-				<file name="Sidebar-PID.js" />
-				<file name="Sidebar-Signs.js" />
-				<file name="Sidebar-ThreatModeling.js" />
-				<file name="Sidebar-WebIcons.js" />
 			</sources>
 		</jscomp>
 		
