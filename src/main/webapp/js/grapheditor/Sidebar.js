@@ -103,8 +103,6 @@ Sidebar.prototype.init = function()
 	this.addStencilPalette('arrows', mxResources.get('arrows'), dir + '/arrows.xml',
 		';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
 	this.setCurrentSearchEntryLibrary();
-
-	this.addBpmnPalette(dir, false);
 	
 	this.setCurrentSearchEntryLibrary();
 	

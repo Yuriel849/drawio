@@ -105,16 +105,10 @@ public class EmbedServlet2 extends HttpServlet
 	public static void initLibraries(HashMap<String, String[]> libraries)
 	{
 		libraries.put("arrows2", new String[] { SHAPES_PATH + "/mxArrows.js" });
-		libraries.put("bpmn",
-				new String[] { SHAPES_PATH + "/bpmn/mxBpmnShape2.js",
-						STENCIL_PATH + "/bpmn.xml" });
 		libraries.put("rackGeneral",
 				new String[] { SHAPES_PATH + "/rack/mxRack.js",
 						STENCIL_PATH + "/rack/general.xml" });
 		libraries.put("rackF5", new String[] { STENCIL_PATH + "/rack/f5.xml" });
-		libraries.put("lean_mapping",
-				new String[] { SHAPES_PATH + "/mxLeanMap.js",
-						STENCIL_PATH + "/lean_mapping.xml" });
 		libraries.put("basic", new String[] { SHAPES_PATH + "/mxBasic.js",
 				STENCIL_PATH + "/basic.xml" });
 		libraries.put("electrical/transmission",
@@ -127,11 +121,6 @@ public class EmbedServlet2 extends HttpServlet
 				STENCIL_PATH + "/gmdl.xml" });
 		libraries.put("cabinets", new String[] { SHAPES_PATH + "/mxCabinets.js",
 				STENCIL_PATH + "/cabinets.xml" });
-		libraries.put("archimate",
-				new String[] { SHAPES_PATH + "/mxArchiMate.js" });
-		libraries.put("archimate3",
-				new String[] { SHAPES_PATH + "/mxArchiMate3.js" });
-		libraries.put("sysml", new String[] { SHAPES_PATH + "/mxSysML.js" });
 		libraries.put("eip", new String[] { SHAPES_PATH + "/mxEip.js",
 				STENCIL_PATH + "/eip.xml" });
 		libraries.put("networks", new String[] { SHAPES_PATH + "/mxNetworks.js",

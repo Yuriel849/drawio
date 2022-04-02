@@ -534,12 +534,6 @@
 								{title: mxResources.get('rack'), id: 'rack', image: IMAGE_PATH + '/sidebar-rack.png'},
 								{title: 'Veeam', id: 'veeam2', image: IMAGE_PATH + '/sidebar-veeam.png'},
 								{title: 'VMware', id: 'vvd', image: IMAGE_PATH + '/sidebar-vvd.png'}]},
-            			{title: mxResources.get('business'),
-            			entries: [{title: 'ArchiMate 3.0', id: 'archimate3', image: IMAGE_PATH + '/sidebar-archimate3.png'},
-								{title: mxResources.get('archiMate21'), id: 'archimate', image: IMAGE_PATH + '/sidebar-archimate.png'},
-								{title: mxResources.get('bpmn') + ' 2.0', id: 'bpmn2', image: IMAGE_PATH + '/sidebar-bpmn.png'},
-								{title: mxResources.get('sysml'), id: 'sysml', image: IMAGE_PATH + '/sidebar-sysml.png'},
-								{title: 'Value Stream Mapping', id: 'lean_mapping', image: IMAGE_PATH + '/sidebar-leanmapping.png'}]},
             			{title: mxResources.get('other'),
             			entries: [{title: mxResources.get('cabinets'), id: 'cabinets', image: IMAGE_PATH + '/sidebar-cabinets.png'},
 								{title: 'Infographic', id: 'infographic', image: IMAGE_PATH + '/sidebar-infographic.png'},
@@ -1093,11 +1087,6 @@
 		this.addVeeamPalette();
 		this.addVeeam2Palette();
 		this.addVVDPalette();
-		this.addArchimate3Palette();
-		this.addArchiMatePalette();
-		this.addBpmn2Palette();
-		this.addSysMLPalette(sysml, dir);
-		this.addLeanMappingPalette();
 		this.addCabinetsPalette();
 		this.addInfographicPalette();
 		this.addEipPalette();
