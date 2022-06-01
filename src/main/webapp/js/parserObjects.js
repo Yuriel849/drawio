@@ -3,32 +3,24 @@ function CircuitData(mxCells = []) {
     this.mxCells = mxCells; // Default empty array
 }
 
-// Add a CircuitComponent object to the array in a CircuitData object
+// Add a circuit component object to the array within a CircuitData object
 CircuitData.prototype.addComponent = function(component) {
     this.mxCells.push(component);
 }
 
-function CircuitNode(name = "mxCell", attrs = [], child = null) {
+// Objects representing the mxCell and subordinate elements of the circuit diagram's XML
+function CircuitElement(name = "mxCell", attrs = {}, child = null) {
     this.name = name; // Default name "mxCell"
-    this.attrs = attrs; // Default empty array
-    this.child = child; // Default null
+    this.attrs = attrs; // Default empty object for attributes
+    this.child = child; // Default null (no child)
 }
 
-CircuitNode.prototype.addAttr = function(attr) {
-    this.attrs.push(attr);
-}
-
-CircuitNode.prototype.setChild = function(child) {
+// Attach a child to this element
+CircuitElement.prototype.setChild = function(child) {
     this.child = child;
 }
 
-CircuitNode.prototype.addChild = function(child) {
-    if(this.child.constructor === Array) {
-        this.child.push(child);
-    }
-}
-
-function Attribute(name, value) {
-    this.name = name;
-    this.value = value;
+// Add an attribute to this element's attributes
+CircuitElement.prototype.addAttr = function(name, value) {
+    this.attrs[name] = value;
 }
