@@ -107,7 +107,6 @@
 				<file name="Sidebar-Cumulus.js" />
 				<file name="Sidebar-EIP.js" />
 				<file name="Sidebar-Electrical.js" />
-				<file name="Sidebar-ER.js" />
 				<file name="Sidebar-Floorplan.js" />
 				<file name="Sidebar-FluidPower.js" />
 				<file name="Sidebar-GCP.js" />
@@ -116,8 +115,6 @@
 				<file name="Sidebar-Gmdl.js" />
 				<file name="Sidebar-IBM.js" />
 				<file name="Sidebar-Infographic.js" />
-				<file name="Sidebar-Ios.js" />
-				<file name="Sidebar-Ios7.js" />
 				<file name="Sidebar-Kubernetes.js" />
 				<file name="Sidebar-LeanMapping.js" />
 				<file name="Sidebar-MSCAE.js" />
@@ -463,25 +460,7 @@
 		<delete file="${basedir}/.tmp0.js"/>
 	</target>
 
-	<target name="integrate" depends="atlas">
-		<copy file="${war.dir}/js/atlas.min.js" tofile="${war.dir}/js/integrate.min.js" overwrite="true"/>
-
-		<jscomp compilationLevel="simple" debug="false" forceRecompile="true" output="${basedir}/.tmp0.js">
-			<sources dir="${basedir}/../integrate">
-				<file name="Integrate.js" />
-			</sources>
-		</jscomp>
-		
-	    <concat destfile="${war.dir}/js/integrate.min.js" fixlastline="yes" append="yes">
-			<file name="${war.dir}/js/shapes-14-6-5.min.js" />
-    		<file name="${war.dir}/js/stencils.min.js" />
-    		<file name="${basedir}/.tmp0.js" />
-   		</concat>
-
-		<delete file="${basedir}/.tmp0.js"/>
-	</target>
-
-	<target name="all" depends="app, integrate">
+	<target name="all" depends="app">
 		<delete file="${war.dir}/js/atlas-viewer.min.js"/>
 		<delete file="${war.dir}/js/atlas.min.js"/>
 	</target>
