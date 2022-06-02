@@ -514,7 +514,6 @@
 		this.entries = [{title: mxResources.get('standard'), entries: stdEntries},
             			{title: mxResources.get('software'),
             			entries: [
-								{title: mxResources.get('android'), id: 'android', image: IMAGE_PATH + '/sidebar-android.png'},
 								{title: 'Atlassian', id: 'atlassian', image: IMAGE_PATH + '/sidebar-atlassian.png'},
 								{title: mxResources.get('bootstrap'), id: 'bootstrap', image: IMAGE_PATH + '/sidebar-bootstrap.png'},
 								{title: 'C4', id: 'c4', image: IMAGE_PATH + '/sidebar-c4.png'},
@@ -1099,7 +1098,6 @@
 				null, null, null, null, null, 'arrows');
 		this.addArrows2Palette();
 		this.setCurrentSearchEntryLibrary();
-		this.addAndroidPalette();
 		this.addAtlassianPalette();
 		this.addBootstrapPalette();
 		this.addDFDPalette();
