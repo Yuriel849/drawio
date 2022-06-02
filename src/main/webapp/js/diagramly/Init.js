@@ -24,18 +24,21 @@ window.PLANT_URL = window.PLANT_URL || 'https://plant-aws.diagrams.net';
 window.DRAW_MATH_URL = window.DRAW_MATH_URL || window.DRAWIO_BASE_URL + '/math';
 window.VSD_CONVERT_URL = window.VSD_CONVERT_URL || 'https://convert.diagrams.net/VsdConverter/api/converter';
 window.EMF_CONVERT_URL = window.EMF_CONVERT_URL || 'https://convert.diagrams.net/emf2png/convertEMF';
-window.REALTIME_URL = window.REALTIME_URL || 'cache';
+window.REALTIME_URL = window.REALTIME_URL || ((window.location.hostname == 'test.draw.io' &&
+	urlParams['cache'] != 'local') ? 'https://app.diagrams.net/cache' : 'cache');
 window.DRAWIO_GITLAB_URL = window.DRAWIO_GITLAB_URL || 'https://gitlab.com';
-window.DRAWIO_GITLAB_ID = window.DRAWIO_GITLAB_ID || 'c9b9d3fcdce2dec7abe3ab21ad8123d89ac272abb7d0883f08923043e80f3e36';
+window.DRAWIO_GITLAB_ID = window.DRAWIO_GITLAB_ID || '2b14debc5feeb18ba65358d863ec870e4cc9294b28c3c941cb3014eb4af9a9b4';
 window.DRAWIO_GITHUB_URL = window.DRAWIO_GITHUB_URL || 'https://github.com';
 window.DRAWIO_GITHUB_API_URL = window.DRAWIO_GITHUB_API_URL || 'https://api.github.com';
 window.DRAWIO_GITHUB_ID = window.DRAWIO_GITHUB_ID || 'Iv1.98d62f0431e40543';
-window.DRAWIO_DROPBOX_ID = window.DRAWIO_DROPBOX_ID || 'libwls2fa9szdji';
+window.DRAWIO_DROPBOX_ID = window.DRAWIO_DROPBOX_ID || 'jg02tc0onwmhlgm';
 window.SAVE_URL = window.SAVE_URL || 'save';
 window.OPEN_URL = window.OPEN_URL || 'import';
 window.PROXY_URL = window.PROXY_URL || 'proxy';
 window.DRAWIO_VIEWER_URL = window.DRAWIO_VIEWER_URL || null;
 window.NOTIFICATIONS_URL = window.NOTIFICATIONS_URL || 'https://www.draw.io/notifications';
+window.RT_WEBSOCKET_URL = window.RT_WEBSOCKET_URL || ('wss://' + ((window.location.hostname == 'test.draw.io') ?
+	'app.diagrams.net' : window.location.hostname) + '/rt');
 
 // Paths and files
 window.SHAPES_PATH = window.SHAPES_PATH || 'shapes';
@@ -83,7 +86,7 @@ window.mxLanguage = window.mxLanguage || (function()
 				
 				if (!lang && window.mxIsElectron)
 				{
-					lang = require('@electron/remote').app.getLocale();
+					lang = urlParams['appLang'];
 					
 					if (lang != null)
 			    	{
@@ -217,6 +220,17 @@ if (urlParams['embedInline'] == '1')
 }
 
 /**
+ * Global function for loading local files via servlet
+ */
+function setCurrentXml(data, filename)
+{
+	if (window.parent != null && window.parent.openFile != null)
+	{
+		window.parent.openFile.setData(data, filename);
+	}
+};
+ 
+/**
  * Returns the global UI setting before running static draw.io code
  */
 window.uiTheme = window.uiTheme || (function() 
@@ -254,17 +268,17 @@ window.uiTheme = window.uiTheme || (function()
 	{
 		if (ui == null)
 		{
-	        var iw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var iw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-	        if (iw <= 768)
-	        {
+			if (iw <= 768)
+			{
 				if (urlParams['pages'] == null)
 				{
 					urlParams['pages'] = '1';
 				}
 
 				ui = 'sketch';
-	        }
+			}
 		}
 	}
 	catch (e)
@@ -283,17 +297,6 @@ window.uiTheme = window.uiTheme || (function()
 })();
 
 /**
- * Global function for loading local files via servlet
- */
-function setCurrentXml(data, filename)
-{
-	if (window.parent != null && window.parent.openFile != null)
-	{
-		window.parent.openFile.setData(data, filename);
-	}
-};
-
-/**
  * Overrides splash URL parameter via local storage
  */
 (function() 
@@ -306,14 +309,15 @@ function setCurrentXml(data, filename)
 		{
 			try
 			{
-				var value = localStorage.getItem('.drawio-config');
+				var key = (urlParams['sketch'] == '1') ? '.sketch-config' : '.drawio-config';
+				var value = localStorage.getItem(key);
 				var showSplash = true;
 				
 				if (value != null)
 				{
 					showSplash = JSON.parse(value).showStartScreen;
 				}
-				
+
 				// Undefined means true
 				if (showSplash == false)
 				{

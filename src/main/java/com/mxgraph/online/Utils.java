@@ -12,10 +12,19 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
+import java.net.UnknownHostException;
+import java.security.SecureRandom;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.net.InetAddress;
 
 /**
  * 
@@ -25,14 +34,8 @@ import java.util.zip.InflaterInputStream;
 public class Utils
 {
 
-	/**
-	 *
-	 */
-	public static class UnsupportedContentException extends Exception
-	{
-		private static final long serialVersionUID = 1239597891574347740L;
-	}
-
+	private static SecureRandom randomSecure = new SecureRandom();
+	
 	/**
 	 * 
 	 */
@@ -41,7 +44,12 @@ public class Utils
 	/**
 	 * 
 	 */
-	protected static final int IO_BUFFER_SIZE = 4 * 1024;
+	public static int MAX_SIZE = 20 * 1024 * 1024; // 20 MB
+
+	/**
+	 * 
+	 */
+	public static final int IO_BUFFER_SIZE = 4 * 1024;
 
 	/**
 	 * Alphabet for global unique IDs.
@@ -57,8 +65,8 @@ public class Utils
 
 		for (int i = 0; i < length; i++)
 		{
-			rtn.append(TOKEN_ALPHABET.charAt(
-					(int) Math.floor(Math.random() * TOKEN_ALPHABET.length())));
+			int offset = randomSecure.nextInt(TOKEN_ALPHABET.length());
+			rtn.append(TOKEN_ALPHABET.substring(offset,offset+1));
 		}
 
 		return rtn.toString();
@@ -135,6 +143,30 @@ public class Utils
 	}
 
 	/**
+	 * Copies the input stream to the output stream using the default buffer size
+	 * @param in the input stream
+	 * @param out the output stream
+	 * @param sizeLimit the maximum number of bytes to copy
+	 * @throws IOException
+	 */
+	public static int copyRestricted(InputStream in, OutputStream out) throws IOException
+	{
+		return copy(in, out, IO_BUFFER_SIZE, MAX_SIZE);
+	}
+
+	/**
+	 * Copies the input stream to the output stream using the default buffer size
+	 * @param in the input stream
+	 * @param out the output stream
+	 * @param sizeLimit the maximum number of bytes to copy
+	 * @throws IOException
+	 */
+	public static int copyRestricted(InputStream in, OutputStream out, int sizeLimit) throws IOException
+	{
+		return copy(in, out, IO_BUFFER_SIZE, sizeLimit);
+	}
+
+	/**
 	 * Copies the input stream to the output stream using the specified buffer size
 	 * @param in the input stream
 	 * @param out the output stream
@@ -144,13 +176,36 @@ public class Utils
 	public static void copy(InputStream in, OutputStream out, int bufferSize)
 			throws IOException
 	{
+		copy(in, out, bufferSize, 0);
+	}
+
+	/**
+	 * Copies the input stream to the output stream using the specified buffer size
+	 * @param in the input stream
+	 * @param out the output stream
+	 * @param bufferSize the buffer size to use when copying
+	 * @param sizeLimit the maximum number of bytes to copy
+	 * @throws IOException
+	 */
+	public static int copy(InputStream in, OutputStream out, int bufferSize, int sizeLimit)
+			throws IOException
+	{
 		byte[] b = new byte[bufferSize];
-		int read;
+		int read, total = 0;
 
 		while ((read = in.read(b)) != -1)
 		{
+			total += read;
+
+			if (sizeLimit > 0 && total > sizeLimit)
+			{
+				throw new SizeLimitExceededException();
+			}
+
 			out.write(b, 0, read);
 		}
+
+		return total;
 	}
 
 	/**
@@ -470,7 +525,8 @@ public class Utils
 	{ 
 		try
 		{  
-			Double.parseDouble(str);  
+			Double.parseDouble(str);
+
 			return true;
 		}
 		catch(NumberFormatException e)
@@ -478,4 +534,93 @@ public class Utils
 			return false;  
 		}  
 	}
+
+	/**
+	 * Checks if the URL parameter is legal, i.e. isn't attempting an SSRF
+	 * 
+	 * @param url the URL to check
+	 * @return true if the URL is permitted
+	 */
+	public static boolean sanitizeUrl(String url)
+	{
+		if (url != null)
+		{
+			try
+			{
+				URL parsedUrl = new URL(url);
+				String protocol = parsedUrl.getProtocol();
+				String host = parsedUrl.getHost();
+				InetAddress address = InetAddress.getByName(host);
+				String hostAddress = address.getHostAddress();
+				host = host.toLowerCase();
+
+				return (protocol.equals("http") || protocol.equals("https"))
+						&& !address.isAnyLocalAddress()
+						&& !address.isLoopbackAddress()
+						&& !address.isLinkLocalAddress()
+						&& !host.endsWith(".internal") // Redundant
+						&& !host.endsWith(".local") // Redundant
+						&& !host.contains("localhost") // Redundant
+						&& !hostAddress.startsWith("0.") // 0.0.0.0/8 
+						&& !hostAddress.startsWith("10.") // 10.0.0.0/8
+						&& !hostAddress.startsWith("127.") // 127.0.0.0/8
+						&& !hostAddress.startsWith("169.254.") // 169.254.0.0/16
+						&& !hostAddress.startsWith("172.16.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.17.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.18.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.19.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.20.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.21.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.22.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.23.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.24.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.25.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.26.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.27.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.28.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.29.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.30.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("172.31.") // 172.16.0.0/12
+						&& !hostAddress.startsWith("192.0.0.") // 192.0.0.0/24
+						&& !hostAddress.startsWith("192.168.") // 192.168.0.0/16
+						&& !hostAddress.startsWith("198.18.") // 198.18.0.0/15
+						&& !hostAddress.startsWith("198.19.") // 198.18.0.0/15
+						&& !hostAddress.startsWith("fc00::") // fc00::/7 https://stackoverflow.com/questions/53764109/is-there-a-java-api-that-will-identify-the-ipv6-address-fd00-as-local-private
+						&& !hostAddress.startsWith("fd00::") // fd00::/8
+						&& !host.endsWith(".arpa"); // reverse domain (needed?)
+			}
+			catch (MalformedURLException e)
+			{
+				return false;
+			}
+			catch (UnknownHostException e)
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	/**
+	 *
+	 */
+	public static class UnsupportedContentException extends Exception
+	{
+		private static final long serialVersionUID = 1239597891574347740L;
+	}
+
+	/**
+	 * Exception for size limit exceeeded in copy request.
+	 */
+	public static class SizeLimitExceededException extends IOException
+	{
+		public SizeLimitExceededException()
+		{
+			super("Size limit exceeded");
+		}
+	}
+
 }

@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - VERSION
-      
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -34,7 +33,7 @@ jobs:
         export VERSION=`cat VERSION`
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add src/main/webapp/workbox-*js*
+        git add .
         git commit -a -m "Ready for $VERSION"
         git push
         git tag "diagramly-${VERSION//\./_}"

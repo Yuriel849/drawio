@@ -1,3 +1,502 @@
+31-MAY-2022: 18.2.0
+
+- Fixes inconsistent menus in sketch theme
+- Fixes ignored XML data for importing embedded SVG
+- Fixes ignored double arrow marker selection [2839]
+- Fixes NPE with regex in find/replace dialog [2833]
+- Fixes link icons in dark mode
+- Fixes main button hover state in conf sketch macro
+
+26-MAY-2022: 18.1.3
+
+- Adds spacing dialog for parallels layout
+- Adds allowlist for layout constructor names
+- Adds JSON values for childLayout styles
+- Adds size check for fetched connection data
+- Allows custom protocols in links
+
+23-MAY-2022: 18.1.2
+
+- Limits export proxy URL
+
+20-MAY-2022: 18.1.1
+
+- [VSDX import] Fixes case when theme index is incorrect
+- Checks stencil name parameter in embed servlet
+- Adds DOM_PURIFY_CONFIG global variable
+- Check env var is set in ExportProxy
+
+19-MAY-2022: 18.0.8
+
+- Deletes unused ExportProxyServlet
+
+17-MAY-2022: 18.0.7
+
+- Sets setInstanceFollowRedirects(false) in proxyservlet
+- Fixes issue in state redirect of AbsAuth
+- Changes regex for CORS check
+
+16-MAY-2022: 18.0.6
+
+- Moves sanitize URL to Utils, adds extra IPv6 check
+- Adds additional checks for hyperlinks
+
+15-MAY-2022: 18.0.5
+
+- Adds isLinkLocalAddress() to address checks
+- Limits well known servlet to serving single file
+
+14-MAY-2022: 18.0.4
+
+- Fixes type error for diffsync with overlays [2808]
+- Handles possible error 400 in OneDrive auth flow
+- Fixes update of cell metadata in CSV import [2796]
+- Applies URL filtering checks to location header in java proxy
+- Resolves URL parameters in java proxy before filtering
+
+11-MAY-2022: 18.0.3
+
+- Removes remote cursor options from context menu
+- Fixes patch checking for entry with no secret
+- Updates closure compiler to v20220502
+- Fixes check for text/plain transfer data
+- Fixes replace all ignoring the first match
+
+07-MAY-2022: 18.0.2
+
+- Handles Element fields in object cloning [DND-477]
+- Fixes lost changes for preview while editing
+- Forbids use of form tags in labels
+- Fixes CSS issues in print dialog for lightbox
+
+05-MAY-2022: 18.0.1
+
+- Adds support for windows line break in CSV files
+- [conf cloud] Fixes trailing space in diagram name during page IDs import
+- FIxes timestamp check in watchFile [819] [DND-487]
+- Hides menus and dropdowns if clicked again [2745]
+- Fixes cursor handling for composite cells [2756]
+- [desktop] Adds strict CSP after loading plugins (disabling unsafe-inline scripts)
+
+04-MAY-2022: 18.0.0
+
+- Replaces sanitizer with DOMpurify
+
+04-MAY-2022: 17.5.1
+
+- [conf cloud] Adds saving delay for specific timing case [DID-4851]
+- Adds "shareCursorPosition": true/false configuration
+- [conf cloud] Prevent publishing without changes creating new version
+- Fixes alt+shift for floating connection [DID-4550]
+- Changes default for shareCursorPosition to true
+- Hides non-applicable sketch options for edges
+- Fixes handling of invalid background page images
+- Adds showRemoteCursors option
+- Fixes LocalFile ctor arguments
+- Fixes lazy shadow pages, stale local draft files
+- Fixes conflict handling for writing electron files
+
+28-APR-2022: 17.5.0
+
+- Refactors GCP2 shapes
+- [conf cloud] Improves page IDs import
+
+20-APR-2022: 17.4.6
+
+- Internal release testing whiteboard app changes
+
+11-APR-2022: 17.4.5
+
+- Internal release testing whiteboard app changes
+
+11-APR-2022: 17.4.4
+
+- Internal release testing whiteboard app changes
+
+11-APR-2022: 17.4.3
+
+- Avoids null string in unused token key
+
+09-APR-2022: 17.4.2
+
+- Fixes height of zero height groups in vsdx import
+- Adds connection points support in vsdx import
+- Adds isolation for caches, logs reading non-latest
+
+06-APR-2022: 17.4.1
+
+- Fixes OneDrive inline picker in Link dialog and show all files
+- Extracts text from selection if cells selected
+- Returns indexable text in model cell order
+- Fixes minimum stroke width for image export https://github.com/jgraph/drawio/issues/2723
+- Fixes PDF printing of background images
+- [conf cloud] Fixes NPE in viewer
+- [jira cloud] Adds delete button for cases of removed embed diagrams
+
+31-MAR-2022: 17.4.0
+
+- Disables text selection in OneDrive inline picker
+- [jira cloud] Fixes re-indexing of old diagrams
+- Fixes NPE for OneDrive file in LinkDialog https://github.com/jgraph/drawio/issues/2721
+- Fixes modal sync status in embed with sketch theme
+- GAE API SDK update to 1.9.95
+
+30-MAR-2022: 17.3.0
+
+- [conf cloud] Enables RT on all domains
+- [jira cloud] Fixes conf auth when multiple sites are allowed
+- Adds enableHtmlEditOption in EditorUi [DID-4610]
+
+30-MAR-2022: 17.2.6
+
+- [jira cloud] Adds Configuration page with re-indexing functionality
+
+29-MAR-2022: 17.2.5
+
+- Adds lazy parsing of file data for shadow pages
+- Adds selection option in print dialog for one page
+- Changes token generation to use SecureRandom
+- [conf cloud] Increases timeout after successful write to next write
+
+25-MAR-2022: 17.2.4
+
+- Fixes replace is not a function
+- Fixes Sharepoint saving to site root drives in new picker
+
+25-MAR-2022: 17.2.3
+
+- Fixes custom links in duplicated page for realtime
+- Uses same domain for realtime in production
+
+24-MAR-2022: 17.2.2
+
+- Adds Shift+Alt for floating connections [DID-4550]
+
+23-MAR-2022: 17.2.1
+
+- Fixes realtime for optimistic sync in OneDrive
+
+23-MAR-2022: 17.2.0
+
+- Improves performance issues on real time mechanism
+
+22-MAR-2022: 17.1.5
+
+- [conf cloud] Gliffy import case, containerId wrong, but diagram on current page
+
+22-MAR-2022: 17.1.4
+
+- [conf cloud] Fixed gliffy mass import, incorrect macro type imported
+
+15-MAR-2022: 17.1.3
+
+- Adds image clipPath support to mxLabel and mxSwimlane
+- [jira Cloud] Updates embed conf scopes
+
+11-MAR-2022: 17.1.2
+
+- Skips sort and merge in RT for single receive data
+- Reduces flickering, simplified RT code
+
+10-MAR-2022: 17.1.1
+
+- Uses tab key for nesting in list elements https://github.com/jgraph/drawio/issues/2673
+- Adds protocol and editor version to p2p message
+- Replaces consensus with improved consistency check
+- Fixes Gliffy DnD import
+
+09-MAR-2022: 17.1.0
+
+- Changes freehand drawing to filled path
+- Ignores pageNotFound in background image dialog
+- Fixes handling of default colors in style targets
+- Adds selection only option to print output
+- Fixes background image offset in print output
+- Fixes dark mode and background pages in print output
+
+08-MAR-2022: 17.0.0
+
+- Enables real time collaborative editing
+
+08-MAR-2022: 16.6.8
+
+- [conf cloud] Fixes toolbar showing in page editor in FF
+
+07-MAR-2022: 16.6.7
+
+- Adds MathJax Safe-mode to fix XSS vulnerability when viewer is used with CSP
+
+04-MAR-2022: 16.6.6
+
+- Fixed cropped images of sub shapes not showing
+
+02-MAR-2022: 16.6.5
+
+- Handles drag and drop of .drawio.png image files
+- Improves error handling when loading files
+- Adds i18n for realtime collaboration
+
+24-FEB-2022: 16.6.4
+
+- Make consistency check independent of return value
+- Fixes cropping in background image dialog
+- Adds click handler for status error message
+- [conf cloud] Adds clean draft files to draw.io re-indexing
+- Disables fast sync by default in OneDrive
+
+23-FEB-2022: 16.6.3
+
+- Enables Google Drive on PC in Office addon
+- Enables fast RT for OneDrive
+- Selects URL input after drag and drop
+
+21-FEB-2022: 16.6.2
+
+- Fixes snap to terminal tolerance
+- Fixes import of bitmap images into blank diagrams
+- Fixes dialog title for checksum error [DID-4314]
+- Handles remote page name changes in sketch theme
+
+17-FEB-2022: 16.6.1
+
+- Adds P2PCollab to build
+
+17-FEB-2022: 16.6.0
+
+- Mode URL parameter forces splash
+- Adds pass-through arguments
+- Disables auth check for external editing
+- Fixes parsing of keywords in SQL plugin https://github.com/jgraph/drawio/issues/2631
+
+10-FEB-2022: 16.5.6
+
+- Opens file after drag and drop on blank diagram
+- Shift+drop forces open file in new tab
+- Fixes pinch to zoom in lightbox
+- Moves multitouch event filtering to mxGraph
+
+09-FEB-2022: 16.5.5
+
+- Updates AWS stencils
+
+08-FEB-2022: 16.5.4
+
+- Removes font CSS links with embedded fonts
+- Adds Cmd+Shift+Alt+Drag
+- Allow connection points for vertices only excluding groups
+- Fixed export to pdf error of empty pages
+- Fixes ctrl+resize for groups
+
+02-FEB-2022: 16.5.3
+
+- Fixes sketch font path
+- [conf cloud] Adds linkAdjustment configuration to viewer
+- [Conf Cloud] Fixes issue in linkAdjustment of tooltips
+- Adds shift+drag to swap shapes
+- Adds missing background for SVG files in dark mode
+
+28-JAN-2022: 16.5.2
+
+- Disables iOS scroll workaround in viewer
+
+28-JAN-2022: 16.5.1
+
+- Adds isExternalDataComms flag
+
+28-JAN-2022: 16.5.0
+
+- Keeps windows in viewport for inline embed mode
+- Sets default scrollbars to true
+- [desktop] Removes setting offline to true
+
+27-JAN-2022: 16.4.11
+
+- Fixes build process to deploy teams.html
+
+27-JAN-2022: 16.4.8
+
+- [desktop] Fixes draft files removal when auto-save is enabled
+- Edit connection points dialog can now only be closed via the dialog button
+- [conf cloud] Disables editing if confluence page is opened inside another service (e.g, Jira project pages)
+- Shows label in edit connection points dialog https://github.com/jgraph/drawio/issues/864
+- Fixes touch event handling on Android https://github.com/jgraph/drawio/issues/2579
+- [desktop] Sets offline and offlineApp true
+- [desktop] Display meaningful error when content is imported that requires server
+	https://github.com/jgraph/drawio/issues/2117
+- Fixes drag from picker for Chrome on touch devices
+
+25-JAN-2022: 16.4.7
+
+- Improves output validation of AbsAuthServlet [DND-371]
+- Improves redirect url validation [DND-370]
+- Changes child-src from none to self
+- Fixes two windows with disabled start screen https://github.com/jgraph/drawio-desktop/issues/883
+- Fixes handling of hidden stroke in RoughCanvas
+- Fixes order and start point for circle layout
+- Removes tags and layers icon in sketch footer
+- [conf cloud] Replaces deprecated dialog.on('close', ...)
+- [conf cloud] Forces sketch mode even when config sets ui
+- Improves connection points dialog
+
+24-JAN-2022: 16.4.6
+
+- Fixes border for waypoint shape with sketch style
+- [conf cloud] Added support for "new line" in page name in PageIds Export
+- Fixes configurations not saving https://github.com/jgraph/drawio-desktop/issues/873
+
+21-JAN-2022: 16.4.5
+
+- Corrects SHA for bootstrap
+
+21-JAN-2022: 16.4.4
+
+- Fixes undeclared variable idx
+- Adds a confirmation step to public Github deployment
+- Enables reverse action for edges https://github.com/jgraph/drawio/issues/2569
+- Switches to dev branch of i18n submodule
+- [conf cloud] Uses content.id instead of the deprecated page.id
+- [conf cloud] Fixes errors of spaces in diagram name and NPE in GraphViewer
+
+20-JAN-2022: 16.4.3
+
+- [jira cloud] Adds refresh button to diagram search page
+- Fixes duplicate flipEdge function
+- Adds unknownStyle option for CSV import
+- Uses new app path in Dropbox
+
+19-JAN-2022: 16.4.2
+
+- Fixes NPE on destroyParentHighlight
+
+19-JAN-2022: 16.4.1
+
+- Fixes NPE in CropImageDialog
+- Expands format window on large screens in sketch
+- Fixes parent highlight after change of parent
+
+19-JAN-2022: 16.4.0
+
+- Adds helper function for tree layouts
+- Fixes inkscape svg export size
+- Adds support for special characters and html entities in string properties
+- Adds sketch default font to PWA cache
+- Fixes crop button state
+- Adds insert menu in sketch sidepanel
+- Bypasses proxy for Google fonts, adds font mapping
+- Fixes local folder for Google font in cell style
+- Adds mapping from font CSS URLs to font-face CSS
+
+18-JAN-2022: 16.3.0
+
+- Fixes hardcoded textarea dialog size
+- Adds snapToGrid action
+- Adds flip for groups and edges https://github.com/jgraph/drawio/issues/1895 /1139
+- Fixes copySize enabled state for edges
+- Embeds sketch default font (Architects Daughter)
+- Clears background image with background color
+- Fixes mouse wheel zoom in Brave for Windows https://github.com/jgraph/drawio/issues/2528
+- Adds support for enumerating edges
+
+14-JAN-2022: 16.2.7
+
+- Adds enumerateValue property
+- Adds peristent scratchpad and search in sketch
+- Updated for modified inline CSS
+- Fixes realtime zoom on iPad with sketch https://github.com/jgraph/drawio/issues/2545
+
+12-JAN-2022: 16.2.6
+
+- Fixes NPE
+
+12-JAN-2022: 16.2.5
+
+- Fixes reset of grid color
+- Adds File submenu, windows=0 test URL parameter
+- Adds enumerate property to replace number plugin
+- Adds non-destructive image cropping https://github.com/jgraph/drawio/issues/73
+- Adds Advanced submenu in Import from
+- Adds mailto for short text sharing
+- Adds ellipsis for Comments menu item
+- Fixes broken background page links after import
+
+07-JAN-2022: 16.2.4
+
+- Fixes duplicate edges in CVS import
+- Adds Convert labels to SVG option to SVG export
+
+07-JAN-2022: 16.2.3
+
+- Uses tableRow in ERD shapes
+- Handles special title sizes in table
+- Adds labels checkbox in More Shapes dialog
+
+05-JAN-2022: 16.2.2
+
+- Disables merging for merged cells
+- [conf cloud] Adds support for anchor importing from server + support for adding links to anchors in old editor
+- Adds precedence for alt on mouse down
+- Adds Shift+Click for table range selection
+- Fixes insertRow/Column for selected cell range
+
+04-JAN-2022: 16.2.1
+
+- Fixes cell divider event handling
+
+04-JAN-2022: 16.2.0
+
+- Fixes MathJax anti-aliasing in CLI export https://github.com/jgraph/drawio/issues/2253
+
+03-JAN-2022: 16.1.4
+
+- Fixes possible NPE
+
+03-JAN-2022: 16.1.3
+
+- Fixes highlight for table shapes
+
+30-DEC-2021: 16.1.2
+
+- Adds fillStyle dropdown for image background
+
+29-DEC-2021: 16.1.1
+
+- Avoids creating Blob for parseFile
+- Fixes dimension shape with large stroke size https://github.com/jgraph/drawio/issues/271
+- Hides foreign object warnings in background pages
+- Fixes overflows in minimal and sketch theme https://github.com/jgraph/drawio/issues/2509
+- Fixes freehand mode for Apple pencil on iOS https://github.com/jgraph/drawio/issues/2510
+- Adds tableRow shape, fixes events for merged cells
+- Uses clip path attribute for SVG image clipping
+- Fixes default label background for imported images
+- Fits image to clipPath bounding box
+- Fixes collapsed table foreground https://github.com/jgraph/drawio/issues/2512
+- Fixes overflow in LinkDialog
+- Disables child layout for collapsed cells
+
+23-DEC-2021: 16.1.0
+
+- Fixes inconsistent event cursors on table lines
+- Fixes default lanecolor for UML frame
+- [conf cloud] Reduces number of comments requests
+- Refactor structure of WEB-INF folder
+
+21-DEC-2021: 16.0.3
+
+- Adds Share and Comments in sketch File menu
+- Fixes no stroke in Roughjs, adds swimlaneHead/Body
+- Uses persisted default grid color
+- Fixes rendering and tooltips for special colors
+- Fixes initial placement of shapes window
+- Uses Pusher 7.0.3 to fix NPE
+
+21-DEC-2021: 16.0.2
+
+- Re-build
+
+21-DEC-2021: 16.0.1
+
+- Fixes possible NPE
+
 17-DEC-2021: 16.0.0
 
 The reason for going to version 16 is there is a breaking change in the docker image. The 

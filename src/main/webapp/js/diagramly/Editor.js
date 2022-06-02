@@ -141,6 +141,16 @@
 	/**
 	 *
 	 */
+	Editor.cloudImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTEyIDZjMi42MiAwIDQuODggMS44NiA1LjM5IDQuNDNsLjMgMS41IDEuNTMuMTFjMS41Ni4xIDIuNzggMS40MSAyLjc4IDIuOTYgMCAxLjY1LTEuMzUgMy0zIDNINmMtMi4yMSAwLTQtMS43OS00LTQgMC0yLjA1IDEuNTMtMy43NiAzLjU2LTMuOTdsMS4wNy0uMTEuNS0uOTVDOC4wOCA3LjE0IDkuOTQgNiAxMiA2bTAtMkM5LjExIDQgNi42IDUuNjQgNS4zNSA4LjA0IDIuMzQgOC4zNiAwIDEwLjkxIDAgMTRjMCAzLjMxIDIuNjkgNiA2IDZoMTNjMi43NiAwIDUtMi4yNCA1LTUgMC0yLjY0LTIuMDUtNC43OC00LjY1LTQuOTZDMTguNjcgNi41OSAxNS42NCA0IDEyIDR6Ii8+PC9zdmc+';
+
+	/**
+	 *
+	 */
+	Editor.cloudOffImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTI0IDE1YzAtMi42NC0yLjA1LTQuNzgtNC42NS00Ljk2QzE4LjY3IDYuNTkgMTUuNjQgNCAxMiA0Yy0xLjMzIDAtMi41Ny4zNi0zLjY1Ljk3bDEuNDkgMS40OUMxMC41MSA2LjE3IDExLjIzIDYgMTIgNmMzLjA0IDAgNS41IDIuNDYgNS41IDUuNXYuNUgxOWMxLjY2IDAgMyAxLjM0IDMgMyAwIC45OS0uNDggMS44NS0xLjIxIDIuNGwxLjQxIDEuNDFjMS4wOS0uOTIgMS44LTIuMjcgMS44LTMuODF6TTQuNDEgMy44NkwzIDUuMjdsMi43NyAyLjc3aC0uNDJDMi4zNCA4LjM2IDAgMTAuOTEgMCAxNGMwIDMuMzEgMi42OSA2IDYgNmgxMS43M2wyIDIgMS40MS0xLjQxTDQuNDEgMy44NnpNNiAxOGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNGgxLjczbDggOEg2eiIvPjwvc3ZnPg==';
+
+	/**
+	 *
+	 */
 	Editor.syncDisabledImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTAgNi4zNVY0LjI2Yy0uOC4yMS0xLjU1LjU0LTIuMjMuOTZsMS40NiAxLjQ2Yy4yNS0uMTIuNS0uMjQuNzctLjMzem0tNy4xNC0uOTRsMi4zNiAyLjM2QzQuNDUgOC45OSA0IDEwLjQ0IDQgMTJjMCAyLjIxLjkxIDQuMiAyLjM2IDUuNjRMNCAyMGg2di02bC0yLjI0IDIuMjRDNi42OCAxNS4xNSA2IDEzLjY2IDYgMTJjMC0xIC4yNS0xLjk0LjY4LTIuNzdsOC4wOCA4LjA4Yy0uMjUuMTMtLjUuMjUtLjc3LjM0djIuMDljLjgtLjIxIDEuNTUtLjU0IDIuMjMtLjk2bDIuMzYgMi4zNiAxLjI3LTEuMjdMNC4xNCA0LjE0IDIuODYgNS40MXpNMjAgNGgtNnY2bDIuMjQtMi4yNEMxNy4zMiA4Ljg1IDE4IDEwLjM0IDE4IDEyYzAgMS0uMjUgMS45NC0uNjggMi43N2wxLjQ2IDEuNDZDMTkuNTUgMTUuMDEgMjAgMTMuNTYgMjAgMTJjMC0yLjIxLS45MS00LjItMi4zNi01LjY0TDIwIDR6Ii8+PC9zdmc+';
 
 	/**
@@ -162,6 +172,11 @@
 	 * 
 	 */
 	Editor.tailSpin = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9Ii0yIC0yIDQ0IDQ0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI4LjA0MiUiIHkxPSIwJSIgeDI9IjY1LjY4MiUiIHkyPSIyMy44NjUlIiBpZD0iYSI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM4MDgwODAiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIwJSIvPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjODA4MDgwIiBzdG9wLW9wYWNpdHk9Ii42MzEiIG9mZnNldD0iNjMuMTQ2JSIvPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjODA4MDgwIiBvZmZzZXQ9IjEwMCUiLz4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxIDEpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTM2IDE4YzAtOS45NC04LjA2LTE4LTE4LTE4IiBzdHJva2U9InVybCgjYSkiIHN0cm9rZS13aWR0aD0iNiI+CiAgICAgICAgICAgICAgICA8YW5pbWF0ZVRyYW5zZm9ybQogICAgICAgICAgICAgICAgICAgIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIKICAgICAgICAgICAgICAgICAgICB0eXBlPSJyb3RhdGUiCiAgICAgICAgICAgICAgICAgICAgZnJvbT0iMCAxOCAxOCIKICAgICAgICAgICAgICAgICAgICB0bz0iMzYwIDE4IDE4IgogICAgICAgICAgICAgICAgICAgIGR1cj0iMC45cyIKICAgICAgICAgICAgICAgICAgICByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICAgICAgICAgICAgPC9wYXRoPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiM4MDgwODAiIGN4PSIzNiIgY3k9IjE4IiByPSIxIj4KICAgICAgICAgICAgICAgIDxhbmltYXRlVHJhbnNmb3JtCiAgICAgICAgICAgICAgICAgICAgYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIgogICAgICAgICAgICAgICAgICAgIHR5cGU9InJvdGF0ZSIKICAgICAgICAgICAgICAgICAgICBmcm9tPSIwIDE4IDE4IgogICAgICAgICAgICAgICAgICAgIHRvPSIzNjAgMTggMTgiCiAgICAgICAgICAgICAgICAgICAgZHVyPSIwLjlzIgogICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAgICAgICAgICA8L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=';
+
+	/**
+	 * 
+	 */
+	Editor.mailImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTIyIDZjMC0xLjEtLjktMi0yLTJINGMtMS4xIDAtMiAuOS0yIDJ2MTJjMCAxLjEuOSAyIDIgMmgxNmMxLjEgMCAyLS45IDItMlY2em0tMiAwbC04IDQuOTlMNCA2aDE2em0wIDEySDRWOGw4IDUgOC01djEweiIvPjwvc3ZnPg==';
 
 	/**
 	 * Used in the GraphViewer lightbox.
@@ -298,6 +313,14 @@
 	 * Common properties for all edges.
 	 */
 	Editor.commonProperties = [
+		{name: 'enumerate', dispName: 'Enumerate', type: 'bool', defVal: false, onChange: function(graph)
+		{
+			graph.refresh();
+		}},
+		{name: 'enumerateValue', dispName: 'Enumerate Value', type: 'string', defVal: '', isVisible: function(state, format)
+		{
+			return mxUtils.getValue(state.style, 'enumerate', '0') == '1';
+		}},
         {name: 'comic', dispName: 'Comic', type: 'bool', defVal: false, isVisible: function(state, format)
         {
         	return mxUtils.getValue(state.style, 'sketch', '0') != '1';
@@ -309,15 +332,18 @@
         }},
         {name: 'fillWeight', dispName: 'Fill Weight', type: 'int', defVal: -1, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'hachureGap', dispName: 'Hachure Gap', type: 'int', defVal: -1, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'hachureAngle', dispName: 'Hachure Angle', type: 'int', defVal: -41, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'curveFitting', dispName: 'Curve Fitting', type: 'float', defVal: 0.95, isVisible: function(state, format)
         {
@@ -333,24 +359,23 @@
         }},
         {name: 'disableMultiStrokeFill', dispName: 'Disable Multi Stroke Fill', type: 'bool', defVal: false, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'dashOffset', dispName: 'Dash Offset', type: 'int', defVal: -1, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'dashGap', dispName: 'Dash Gap', type: 'int', defVal: -1, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'zigzagOffset', dispName: 'ZigZag Offset', type: 'int', defVal: -1, isVisible: function(state, format)
         {
-        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
-        }},
-        {name: 'jiggle', dispName: 'Jiggle', type: 'float', min: 0, defVal: 1, isVisible: function(state, format)
-        {
-        	return mxUtils.getValue(state.style, 'comic', '0') == '1' ||
-        		mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1';
+        	return mxUtils.getValue(state.style, 'sketch', (urlParams['rough'] == '1') ? '1' : '0') == '1' &&
+				state.vertices.length > 0;
         }},
         {name: 'sketchStyle', dispName: 'Sketch Style', type: 'enum', defVal: 'rough',
         	enumList: [{val: 'rough', dispName: 'Rough'}, {val: 'comic', dispName: 'Comic'}],
@@ -576,6 +601,11 @@
 		'## Parent style for nodes with child nodes (placeholders are replaced once).\n' +
 		'#\n' +
 		'# parentstyle: swimlane;whiteSpace=wrap;html=1;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;\n' +
+		'#\n' +
+		'## Style to be used for objects not in the CSV. If this is - then such objects are ignored,\n' +
+		'## else they are created using this as their style, eg. whiteSpace=wrap;html=1;\n' +
+		'#\n' +
+		'# unknownStyle: -\n' +
 		'#\n' +
 		'## Optional column name that contains a reference to a named style in styles.\n' +
 		'## Default is the current style for nodes.\n' +
@@ -895,11 +925,12 @@
 			
 			if (stroke)
 			{
-				style.stroke = this.canvas.state.strokeColor === 'none' ? 'transparent' : this.canvas.state.strokeColor;
+				style.stroke = this.canvas.state.strokeColor === mxConstants.NONE ?
+					'transparent' : this.canvas.state.strokeColor;
 			}
 			else
 			{
-				delete style.stroke;
+				style.stroke = mxConstants.NONE;
 			}
 			
 			var gradient = null;
@@ -907,8 +938,10 @@
 			
 			if (fill)
 			{
-				style.fill = this.canvas.state.fillColor === 'none' ? '' : this.canvas.state.fillColor;
-				gradient = this.canvas.state.gradientColor === 'none' ? null : this.canvas.state.gradientColor;
+				style.fill = this.canvas.state.fillColor === mxConstants.NONE ?
+					'' : this.canvas.state.fillColor;
+				gradient = this.canvas.state.gradientColor === mxConstants.NONE ?
+					null : this.canvas.state.gradientColor;
 			}
 			else
 			{
@@ -1158,7 +1191,8 @@
 					this.nextShape.options[key] = style[key];
 				}
 				
-				if (style['stroke'] == null)
+				if (style['stroke'] == mxConstants.NONE ||
+					style['stroke'] == null)
 				{
 					delete this.nextShape.options['stroke'];
 				}
@@ -1239,9 +1273,8 @@
 		var shapeCreateHandJiggle = mxShape.prototype.createHandJiggle;
 		mxShape.prototype.createHandJiggle = function(c)
 		{
-			if (!this.outline && this.style != null && mxUtils.getValue(this.style,
-					'sketch', /*(urlParams['sketch'] != '1' && urlParams['rough'] == '1') ?
-						'1' : */'0') != '0')
+			if (!this.outline && this.style != null &&
+				mxUtils.getValue(this.style, 'sketch', '0') != '0')
 			{
 				if (mxUtils.getValue(this.style, 'sketchStyle', 'rough') == 'comic')
 				{
@@ -1257,7 +1290,18 @@
 				return shapeCreateHandJiggle.apply(this, arguments);
 			}
 		};
-		
+
+		// Avoids duplicate painting of images
+		var imageShapePaintVertexShape = mxImageShape.prototype.paintVertexShape;
+
+		mxImageShape.prototype.paintVertexShape = function(c, x, y, w, h)
+		{
+			if (c.handJiggle == null || !c.handJiggle.passThrough)
+			{
+				imageShapePaintVertexShape.apply(this, arguments);
+			}
+		};
+
 		// Overrides for event handling on transparent background for sketch style
 		var shapePaint = mxShape.prototype.paint;
 		mxShape.prototype.paint = function(c)
@@ -1754,6 +1798,12 @@
 			StyleFormatPanel.prototype.defaultColorSchemes = config.defaultColorSchemes || StyleFormatPanel.prototype.defaultColorSchemes;
 			Graph.prototype.defaultEdgeLength = config.defaultEdgeLength || Graph.prototype.defaultEdgeLength;
 			DrawioFile.prototype.autosaveDelay = config.autosaveDelay || DrawioFile.prototype.autosaveDelay;
+
+			// Enables debug output
+			if (config.debug)
+			{
+				urlParams['test'] = '1'
+			}
 			
 			if (config.templateFile != null)
 			{
@@ -2046,6 +2096,16 @@
 			{
 				EditorUi.prototype.maxImageSize = config.maxImageSize;
 			}
+			
+			if (config.shareCursorPosition != null)
+			{
+				EditorUi.prototype.shareCursorPosition = config.shareCursorPosition;
+			}
+
+			if (config.showRemoteCursors != null)
+			{
+				EditorUi.prototype.showRemoteCursors = config.showRemoteCursors;
+			}
 		}
 	};
 
@@ -2158,20 +2218,15 @@
 
 		if (node != null)
 		{
-			// Checks input for parser errors
-			var errs = node.getElementsByTagName('parsererror');
-			
-			if (errs != null && errs.length > 0)
+			// Checks for parser errors
+			var cause = Editor.extractParserError(node, mxResources.get('invalidOrMissingFile'));
+
+			if (cause)
 			{
-				var elt = errs[0];
-				var divs = elt.getElementsByTagName('div');
-				
-				if (divs != null && divs.length > 0)
-				{
-					elt = divs[0];
-				}
-				
-				throw {message: mxUtils.getTextContent(elt)};
+				EditorUi.debug('Editor.setGraphXml ParserError', [this],
+					'node', [node], 'cause', [cause]);
+
+				throw new Error(mxResources.get('notADiagramFile') + ' (' + cause + ')');
 			}
 			else if (node.nodeName == 'mxGraphModel')
 			{
@@ -2404,7 +2459,7 @@
 		if (typeof(window.MathJax) === 'undefined')
 		{
 			src = ((src != null) ? src : DRAW_MATH_URL + '/MathJax.js') + '?config=TeX-MML-AM_' +
-				((urlParams['math-output'] == 'html') ? 'HTMLorMML' : 'SVG') + '-full';
+				((urlParams['math-output'] == 'html') ? 'HTMLorMML' : 'SVG') + '-full,Safe';
 			Editor.mathJaxQueue = [];
 
 			Editor.doMathJaxRender = function(container)
@@ -2577,9 +2632,10 @@
 		// No access-control-allow-origin for some Iconfinder images, add this when fixed:
 		// /^https?:\/\/[^\/]*\.iconfinder.com\//.test(url) ||
 		return (this.corsRegExp != null && this.corsRegExp.test(url)) ||
-			url.substring(0, 34) === 'https://raw.githubusercontent.com/';
+			url.substring(0, 34) === 'https://raw.githubusercontent.com/' ||
+			url.substring(0, 29) === 'https://fonts.googleapis.com/' ||
+			url.substring(0, 26) === 'https://fonts.gstatic.com/';
 	};
-	
 	
 	/**
 	 * Converts all images in the SVG output to data URIs for immediate rendering
@@ -3006,6 +3062,19 @@
 	};
 	
 	/**
+	 * Returns the URL and mime type to be used for the given font.
+	 */
+	Editor.prototype.mapFontUrl = function(mime, url, fn)
+	{
+		if ((/^https?:\/\//.test(url)) && !this.isCorsEnabledForUrl(url))
+		{
+			url = PROXY_URL + '?url=' + encodeURIComponent(url);
+		}
+
+		fn(mime, url);
+	};
+
+	/**
 	 * For the fonts in CSS to be applied when rendering images on canvas, the actual
 	 * font data must be made available via a data URI encoding of the file.
 	 */
@@ -3013,7 +3082,7 @@
     {
         var parts = fontCss.split('url(');
         var waiting = 0;
-        
+		
         if (this.cachedFonts == null) 
         {
         	this.cachedFonts = {};
@@ -3033,7 +3102,7 @@
                     result.push(this.cachedFonts[Editor.trimCssUrl(parts[j].substring(0, idx))]);
                     result.push('"' + parts[j].substring(idx));
                 }
-                
+				
                 then(result.join(''));
             }
         });
@@ -3088,26 +3157,22 @@
                         {
                             mime = 'application/font-sfnt';
                         }
-                        
-                        var realUrl = url;
-                        
-                        if ((/^https?:\/\//.test(realUrl)) && !this.isCorsEnabledForUrl(realUrl))
-                        {
-                            realUrl = PROXY_URL + '?url=' + encodeURIComponent(url);
-                        }
 
-                        // LATER: Remove cache-control header
-                        this.loadUrl(realUrl, mxUtils.bind(this, function(uri)
-                        {
-                        	this.cachedFonts[url] = uri;
-                            waiting--;
-                            finish();
-                        }), mxUtils.bind(this, function(err)
-                        {
-                            // LATER: handle error
-                            waiting--;
-                            finish();
-                        }), true, null, 'data:' + mime + ';charset=utf-8;base64,');
+						this.mapFontUrl(mime, url, mxUtils.bind(this, function(realMime, realUrl)
+						{
+							// LATER: Remove cache-control header
+							this.loadUrl(realUrl, mxUtils.bind(this, function(uri)
+							{
+								this.cachedFonts[url] = uri;
+								waiting--;
+								finish();
+							}), mxUtils.bind(this, function(err)
+							{
+								// LATER: handle error
+								waiting--;
+								finish();
+							}), true, null, 'data:' + realMime + ';charset=utf-8;base64,');
+						}));
                     }
                 }))(Editor.trimCssUrl(parts[i].substring(0, idx)), format);
             }
@@ -3145,6 +3210,24 @@
             then();
         }
     };
+
+	/**
+	 * Returns a CSS mapping for the given CSS URL.
+	 */
+	Editor.prototype.createGoogleFontCache = function()
+	{
+		var cache = {};
+
+		for (var key in Graph.fontMapping)
+		{
+			if (Graph.isCssFontUrl(key))
+			{
+				cache[key] = Graph.fontMapping[key];
+			}
+		}
+
+		return cache;
+	};
     
     /**
      * Embeds external fonts
@@ -3152,21 +3235,22 @@
     Editor.prototype.embedExtFonts = function(callback)
     {
     	var extFonts = this.graph.getCustomFonts();
-    	
+		
 		if (extFonts.length > 0)
 		{
-			var styleCnt = '', waiting = 0;
+			var content = [];
+			var waiting = 0;
 			
 			if (this.cachedGoogleFonts == null)
 			{
-				this.cachedGoogleFonts = {};
+				this.cachedGoogleFonts = this.createGoogleFontCache();
 			}
 			
 			var googleCssDone = mxUtils.bind(this, function()
 			{
 				if (waiting == 0)
 	            {
-					this.embedCssFonts(styleCnt, callback);
+					this.embedCssFonts(content.join(''), callback);
 	            }
 			});
 			
@@ -3183,27 +3267,27 @@
 							this.loadUrl(fontUrl, mxUtils.bind(this, function(css)
 		                    {
 								this.cachedGoogleFonts[fontUrl] = css;
-								styleCnt += css;
+								content.push(css + '\n');
 		                        waiting--;
 		                        googleCssDone();
 		                    }), mxUtils.bind(this, function(err)
 		                    {
 		                        // LATER: handle error
 		                        waiting--;
-		                        styleCnt += '@import url(' + fontUrl + ');';
+								content.push('@import url(' + fontUrl + ');\n');
 		                        googleCssDone();
 		                    }));
 						}
 						else
 						{
-							styleCnt += this.cachedGoogleFonts[fontUrl];
+							content.push(this.cachedGoogleFonts[fontUrl] + '\n');
 						}
 					}
 					else
 					{
-						styleCnt += '@font-face {' +
-				            'font-family: "' + fontName + '";' + 
-				            'src: url("' + fontUrl + '")}';
+						content.push('@font-face {' +
+							'font-family: "' + fontName + '";' + 
+							'src: url("' + fontUrl + '")}\n');
 					}
 				}))(extFonts[i].name, extFonts[i].url);
 			}
@@ -3230,7 +3314,10 @@
 			for (var i = 0; i < styles.length; i++)
 			{
 				// Ignores style elements with no MathJax CSS
-				if (mxUtils.getTextContent(styles[i]).indexOf('MathJax') > 0)
+				var content = mxUtils.getTextContent(styles[i]);
+
+				if (content.indexOf('mxPageSelector') < 0 &&
+					content.indexOf('MathJax') > 0)
 				{
 					defs[0].appendChild(styles[i].cloneNode(true));
 				}
@@ -4231,6 +4318,8 @@
 		mxCellRenderer.defaultShapes['swimlane'].prototype.customProperties = [
 	        {name: 'arcSize', dispName: 'Arc Size', type: 'float', min:0, defVal: 15},
 	        {name: 'startSize', dispName: 'Header Size', type: 'float'},
+			{name: 'swimlaneHead', dispName: 'Head Border', type: 'bool', defVal: true},
+			{name: 'swimlaneBody', dispName: 'Body Border', type: 'bool', defVal: true},
 	        {name: 'horizontal', dispName: 'Horizontal', type: 'bool', defVal: true},
 	        {name: 'separatorColor', dispName: 'Separator Color', type: 'color', defVal: null},
 	    ];
@@ -4241,7 +4330,12 @@
 			{name: 'fixedRows', dispName: 'Fixed Rows', type: 'bool', defVal: false},
 			{name: 'resizeLast', dispName: 'Resize Last Column', type: 'bool', defVal: false},
 			{name: 'resizeLastRow', dispName: 'Resize Last Row', type: 'bool', defVal: false}].
-			concat(mxCellRenderer.defaultShapes['swimlane'].prototype.customProperties);
+			concat(mxCellRenderer.defaultShapes['swimlane'].prototype.customProperties).
+			concat(mxCellRenderer.defaultShapes['partialRectangle'].prototype.customProperties);
+
+		mxCellRenderer.defaultShapes['tableRow'].prototype.customProperties =
+			mxCellRenderer.defaultShapes['swimlane'].prototype.customProperties.
+			concat(mxCellRenderer.defaultShapes['partialRectangle'].prototype.customProperties);
 		
 		mxCellRenderer.defaultShapes['doubleEllipse'].prototype.customProperties = [
 	        {name: 'margin', dispName: 'Indent', type: 'float', min:0, defVal:4}
@@ -4843,13 +4937,13 @@
 				}
 				else
 				{
-					td.innerHTML = pValue;
+					td.innerHTML = mxUtils.htmlEntities(decodeURIComponent(pValue));
 					
 					mxEvent.addListener(td, 'click', mxUtils.bind(that, function()
 					{
 						var input = document.createElement('input');
 						setElementPos(td, input, true);
-						input.value = pValue;
+						input.value = decodeURIComponent(pValue);
 						input.className = 'gePropEditor';
 						
 						if ((pType == 'int' || pType == 'float') && !prop.allowAuto)
@@ -4898,7 +4992,7 @@
 								inputVal = prop.max;
 							}
 
-							var newVal = mxUtils.htmlEntities((pType == 'int'? parseInt(inputVal) : inputVal) + '');
+							var newVal = encodeURIComponent((pType == 'int'? parseInt(inputVal) : inputVal) + '');
 							
 							applyStyleVal(pName, newVal, prop);
 						}
@@ -5206,7 +5300,7 @@
 										style = mxUtils.setStyle(style, mxConstants.STYLE_GRADIENTCOLOR, colorset['gradient'] ||
 											mxUtils.getValue(defaults, mxConstants.STYLE_GRADIENTCOLOR, null));
 									
-										if (!mxEvent.isControlDown(evt) && (!mxClient.IS_MAC || !mxEvent.isMetaDown(evt)) &&
+										if (!mxEvent.isControlDown(evt) && (!mxClient.IS_MAC || !mxEvent.isMetaDown(evt)) &&
 											graph.getModel().isVertex(cells[i]))
 										{
 											style = mxUtils.setStyle(style, mxConstants.STYLE_FONTCOLOR, colorset['font'] ||
@@ -5472,6 +5566,13 @@
 	}
 	
 	/**
+	 * Maps fonts to font-face CSS.
+	 */
+	Graph.fontMapping = {'https://fonts.googleapis.com/css?family=Architects+Daughter':
+		'@font-face { font-family: "Architects Daughter"; ' + 
+		'src: url(' + STYLE_PATH + '/fonts/ArchitectsDaughter-Regular.ttf) format("truetype"); }'};
+
+	/**
 	 * Lookup table for mapping from font URL and name to elements in the DOM.
 	 */
 	Graph.customFontElements = {};
@@ -5503,8 +5604,9 @@
 	Graph.createFontElement = function(name, url)
 	{
 		var elt = null;
+		var style = Graph.fontMapping[url];
 
-		if (Graph.isCssFontUrl(url))
+		if (style == null && Graph.isCssFontUrl(url))
 		{
 			elt = document.createElement('link');
 			elt.setAttribute('rel', 'stylesheet');
@@ -5514,10 +5616,15 @@
 		}
 		else
 		{
+			if (style == null)
+			{
+				style = '@font-face {\n' +	
+					'font-family: "' + name + '";\n' + 	
+					'src: url("' + url + '");\n}'
+			}
+
 			elt = document.createElement('style');
-			mxUtils.write(elt, '@font-face {\n' +	
-				'font-family: "' + name + '";\n' + 	
-				'src: url("' + url + '");\n}');
+			mxUtils.write(elt, style);
 		}
 		
 		return elt;
@@ -6501,6 +6608,114 @@
 	};
 
 	/**
+	 * Overridden to destroy the shape number.
+	 */
+	var cellRendererDestroy = mxCellRenderer.prototype.destroy;
+	mxCellRenderer.prototype.destroy = function(state)
+	{
+		cellRendererDestroy.apply(this, arguments);
+		
+		if (state.secondLabel != null)
+		{
+			state.secondLabel.destroy();
+			state.secondLabel = null;
+		}
+	};
+	
+	/**
+	 * Includes the shape number in the return value.
+	 */
+	mxCellRenderer.prototype.getShapesForState = function(state)
+	{
+		return [state.shape, state.text, state.secondLabel, state.control];
+	};
+
+	/**
+	 * Resets the global shape counter.
+	 */
+	var graphViewResetValidationState = mxGraphView.prototype.resetValidationState;
+	
+	mxGraphView.prototype.resetValidationState = function()
+	{
+		graphViewResetValidationState.apply(this, arguments);
+		this.enumerationState = 0;
+	};
+	
+	/**
+	 * Adds shape number update the validation step.
+	 */
+	var graphViewStateValidated = mxGraphView.prototype.stateValidated;
+	
+	mxGraphView.prototype.stateValidated = function(state)
+	{
+		if (state.shape != null)
+		{
+			this.redrawEnumerationState(state);
+		}
+
+		return graphViewStateValidated.apply(this, arguments);
+	};
+
+	/**
+	 * Returns the markup to be used for the enumeration shape.
+	 */
+	mxGraphView.prototype.createEnumerationValue = function(state)
+	{
+		var value =  decodeURIComponent(mxUtils.getValue(state.style, 'enumerateValue', ''));
+
+		if (value == '')
+		{
+			value = ++this.enumerationState;
+		}
+
+		return '<div style="padding:2px;border:1px solid gray;background:yellow;border-radius:2px;">' +
+			mxUtils.htmlEntities(value) + '</div>';
+	};
+
+	/**
+	 * Adds drawing and update of the shape number.
+	 */
+	mxGraphView.prototype.redrawEnumerationState = function(state)
+	{
+		var enumerate = mxUtils.getValue(state.style, 'enumerate', 0) == '1';
+
+		if (enumerate && state.secondLabel == null)
+		{
+			state.secondLabel = new mxText('', new mxRectangle(),
+				mxConstants.ALIGN_LEFT, mxConstants.ALIGN_BOTTOM);
+			state.secondLabel.size = 12;
+			state.secondLabel.state = state;
+			state.secondLabel.dialect = mxConstants.DIALECT_STRICTHTML;
+
+			this.graph.cellRenderer.initializeLabel(state, state.secondLabel);
+		}
+		else if (!enumerate && state.secondLabel != null)
+		{
+			state.secondLabel.destroy();
+			state.secondLabel = null;
+		}
+
+		var shape = state.secondLabel;
+
+		if (shape != null)
+		{
+			var s = state.view.scale;
+			var value = this.createEnumerationValue(state);
+			var bounds = this.graph.model.isVertex(state.cell) ?
+				new mxRectangle(state.x + state.width - 4 * s, state.y + 4 * s, 0, 0) :
+				mxRectangle.fromPoint(state.view.getPoint(state));
+
+			if (!shape.bounds.equals(bounds) || shape.value != value || shape.scale != s)
+			{
+				shape.bounds = bounds;
+				shape.value = value;
+				shape.scale = s;
+				shape.redraw();
+			}
+		}
+	};
+
+	/**
 	 * Adds workaround for math rendering in Chrome.
 	 * 
 	 * Workaround for https://bugs.webkit.org/show_bug.cgi?id=93358 in WebKit
@@ -7377,16 +7592,19 @@
 	/**
 	 * Highlights the given cell.
 	 */
-	Graph.prototype.highlightCell = function(cell, color, duration, opacity)
+	Graph.prototype.highlightCell = function(cell, color, duration, opacity, strokeWidth)
 	{
 		color = (color != null) ? color : mxConstants.DEFAULT_VALID_COLOR;
 		duration = (duration != null) ? duration : 1000;
 		var state = this.view.getState(cell);
+		var hl = null;
 		
 		if (state != null)
 		{
-			var sw = Math.max(5, mxUtils.getValue(state.style, mxConstants.STYLE_STROKEWIDTH, 1) + 4);
-			var hl = new mxCellHighlight(this, color, sw, false);
+			strokeWidth = (strokeWidth != null) ? strokeWidth : 4;
+			var sw = Math.max(strokeWidth + 1, mxUtils.getValue(state.style,
+				mxConstants.STYLE_STROKEWIDTH, 1) + strokeWidth);
+			hl = new mxCellHighlight(this, color, sw, false);
 			
 			if (opacity != null)
 			{
@@ -7400,7 +7618,8 @@
 			{
 				if (hl.shape != null)
 				{
-				 	mxUtils.setPrefixedStyle(hl.shape.node.style, 'transition', 'all 1200ms ease-in-out');
+				 	mxUtils.setPrefixedStyle(hl.shape.node.style,
+						'transition', 'all 1200ms ease-in-out');
 					hl.shape.node.style.opacity = 0;
 				}
 				
@@ -7411,6 +7630,8 @@
 				}, 1200);
 			}, duration);
 		}
+
+		return hl;
 	};
 
 	/**
@@ -7608,6 +7829,7 @@
 	mxStencilRegistry.libraries['electrical/logic_gates'] = [SHAPES_PATH + '/mxElectrical.js', STENCIL_PATH + '/electrical/logic_gates.xml'];
 	mxStencilRegistry.libraries['electrical/miscellaneous'] = [SHAPES_PATH + '/mxElectrical.js', STENCIL_PATH + '/electrical/miscellaneous.xml'];
 	mxStencilRegistry.libraries['electrical/signal_sources'] = [SHAPES_PATH + '/mxElectrical.js', STENCIL_PATH + '/electrical/signal_sources.xml'];
+	mxStencilRegistry.libraries['electrical/electro-mechanical'] = [SHAPES_PATH + '/mxElectrical.js', STENCIL_PATH + '/electrical/electro-mechanical.xml'];
 	mxStencilRegistry.libraries['electrical/transmission'] = [SHAPES_PATH + '/mxElectrical.js', STENCIL_PATH + '/electrical/transmission.xml'];
 	mxStencilRegistry.libraries['infographic'] = [SHAPES_PATH + '/mxInfographic.js'];
 	mxStencilRegistry.libraries['mockup/buttons'] = [SHAPES_PATH + '/mockup/mxMockupButtons.js'];
@@ -7683,6 +7905,22 @@
 	};
 
 	/**
+	 * Adds style to mark stencils as lines.
+	 */
+	var mxStencilDrawShape = mxStencil.prototype.drawShape;
+		
+	mxStencil.prototype.drawShape = function(canvas, shape, x, y, w, h)
+	{
+		if (mxUtils.getValue(shape.style, 'lineShape', null) == '1')
+		{
+			canvas.setFillColor(mxUtils.getValue(shape.style,
+				mxConstants.STYLE_STROKECOLOR, this.stroke));
+		}
+
+		return mxStencilDrawShape.apply(this, arguments);
+	};
+
+	/**
 	 * Constructs a new print dialog.
 	 */
 	PrintDialog.prototype.create = function(editorUi, titleText)
@@ -7718,7 +7956,7 @@
 
 		mxUtils.br(pagesSection);
 
-		// Pages ... to ...
+		// Page range
 		var pagesRadio = allPagesRadio.cloneNode(true);
 		allPagesRadio.setAttribute('checked', 'checked');
 		pagesRadio.setAttribute('value', 'range');
@@ -7793,11 +8031,47 @@
 			div.appendChild(pagesSection);
 			pagesRadio.checked = true;
 		}
+
+		mxUtils.br(pagesSection);
 		
+		// Selection only
+		var selectionOnlyRadio = document.createElement('input');
+		selectionOnlyRadio.setAttribute('value', 'all');
+		selectionOnlyRadio.setAttribute('type', 'radio');
+		selectionOnlyRadio.style.marginRight = '8px';
+		
+		if (graph.isSelectionEmpty())
+		{
+			selectionOnlyRadio.setAttribute('disabled', 'disabled');
+		}
+
 		// Adjust to ...
 		var adjustSection = document.createElement('div');
 		adjustSection.style.marginBottom = '10px';
+
+		if (pageCount == 1)
+		{
+			selectionOnlyRadio.setAttribute('type', 'checkbox');
+			selectionOnlyRadio.style.marginBottom = '12px';
+			adjustSection.appendChild(selectionOnlyRadio);
+		}
+		else
+		{
+
+			selectionOnlyRadio.setAttribute('name', 'pages-printdialog');
+			selectionOnlyRadio.style.marginBottom = '8px';
+			pagesSection.appendChild(selectionOnlyRadio);
+		}
 		
+		var span = document.createElement('span');
+		mxUtils.write(span, mxResources.get('selectionOnly'));
+		selectionOnlyRadio.parentNode.appendChild(span);
+
+		if (pageCount == 1)
+		{
+			mxUtils.br(selectionOnlyRadio.parentNode);
+		}
+
 		var adjustRadio = document.createElement('input');
 		adjustRadio.style.marginRight = '8px';
 		
@@ -7831,7 +8105,7 @@
 		adjustRadio.setAttribute('checked', 'checked');
 		
 		var spanFitRadio = document.createElement('div');
-		spanFitRadio.style.cssText = 'display:inline-block;height:100%;vertical-align:top;padding-top:2px;';
+		spanFitRadio.style.cssText = 'display:inline-block;vertical-align:top;padding-top:2px;';
 		spanFitRadio.appendChild(fitRadio);
 		fitSection.appendChild(spanFitRadio);
 		
@@ -7949,14 +8223,18 @@
 			
 			// Disables dark mode while printing
 			var darkStylesheet = null;
-			
+			var darkFg = graph.shapeForegroundColor;
+			var darkBg = graph.shapeBackgroundColor;
+
 			if (graph.themes != null && graph.defaultThemeName == 'darkTheme')
 			{
 				darkStylesheet = graph.stylesheet;
 				graph.stylesheet = graph.getDefaultStylesheet()
+				graph.shapeForegroundColor = '#000000';
+				graph.shapeBackgroundColor = '#ffffff';
 				graph.refresh();
 			}
-			
+
 			function printGraph(thisGraph, pv, forcePageBreaks)
 			{
 				// Workaround for CSS transforms affecting the print output
@@ -8028,6 +8306,14 @@
 					pv = PrintDialog.createPrintPreview(thisGraph, scale, pf, border, x0, y0, autoOrigin);
 					pv.pageSelector = false;
 					pv.mathEnabled = false;
+
+					if (selectionOnlyRadio.checked)
+					{
+						pv.isCellVisible = function(cell)
+						{
+							return thisGraph.isCellSelected(cell);
+						};
+					}
 					
 					var file = editorUi.getCurrentFile();
 					
@@ -8120,15 +8406,19 @@
 					
 					// Switches stylesheet for print output in dark mode
 					var temp = null;
+					var tempFg = graph.shapeForegroundColor;
+					var tempBg = graph.shapeBackgroundColor;
 					
 					// Disables dashed printing of flowAnimation
 					var enableFlowAnimation = graph.enableFlowAnimation;
 					graph.enableFlowAnimation = false;
-					
+
 					if (graph.themes != null && graph.defaultThemeName == 'darkTheme')
 					{
 						temp = graph.stylesheet;
 						graph.stylesheet = graph.getDefaultStylesheet()
+						graph.shapeForegroundColor = '#000000';
+						graph.shapeBackgroundColor = '#ffffff';
 						graph.refresh();
 					}
 					
@@ -8141,6 +8431,8 @@
 					// Restores the stylesheet
 					if (temp != null)
 					{
+						graph.shapeForegroundColor = tempFg;
+						graph.shapeBackgroundColor = tempBg;
 						graph.stylesheet = temp;
 						graph.refresh();
 					}
@@ -8202,7 +8494,7 @@
 			var pagesTo = pagesToInput.value;
 			var ignorePages = !allPagesRadio.checked;
 			var pv = null;
-			
+
 			if (EditorUi.isElectronApp)
 			{
 				PrintDialog.electronPrint(editorUi, allPagesRadio.checked, pagesFrom, pagesTo,  fitRadio.checked,
@@ -8214,7 +8506,9 @@
 			
 			if (ignorePages)
 			{
-				ignorePages = pagesFrom == currentPage && pagesTo == currentPage;
+				ignorePages = selectionOnlyRadio.checked ||
+					(pagesFrom == currentPage &&
+					pagesTo == currentPage);
 			}
 			
 			if (!ignorePages && editorUi.pages != null && editorUi.pages.length)
@@ -8236,6 +8530,8 @@
 					if (tempGraph == null)
 					{
 						tempGraph = editorUi.createTemporaryGraph(graph.stylesheet);
+						tempGraph.shapeForegroundColor = graph.shapeForegroundColor;
+						tempGraph.shapeBackgroundColor = graph.shapeBackgroundColor;
 
 						// Restores graph settings that are relevant for printing
 						var pageVisible = true;
@@ -8262,12 +8558,43 @@
 							bgImage = page.viewState.backgroundImage;
 							tempGraph.extFonts = page.viewState.extFonts;
 						}
-					
+
+						// Forces update of background page image in offscreen page
+						if (bgImage != null && bgImage.originalSrc != null)
+						{
+							bgImage = editorUi.createImageForPageLink(
+								bgImage.originalSrc, page);
+						}
+						
 						tempGraph.background = bg;
-						tempGraph.backgroundImage = (bgImage != null) ? new mxImage(bgImage.src, bgImage.width, bgImage.height) : null;
+						tempGraph.backgroundImage = (bgImage != null) ? new mxImage(
+							bgImage.src, bgImage.width, bgImage.height,
+							bgImage.x, bgImage.y) : null;
 						tempGraph.pageVisible = pageVisible;
 						tempGraph.mathEnabled = mathEnabled;
-						
+
+						// Overrides graph bounds to include background images
+						var graphGetGraphBounds = tempGraph.getGraphBounds;
+
+						tempGraph.getGraphBounds = function()
+						{
+							var bounds = graphGetGraphBounds.apply(this, arguments);
+							var img = this.backgroundImage;
+							
+							if (img != null && img.width != null && img.height != null)
+							{
+								var t = this.view.translate;
+								var s = this.view.scale;
+
+								bounds = mxRectangle.fromRectangle(bounds);
+								bounds.add(new mxRectangle(
+									(t.x + img.x) * s, (t.y + img.y) * s,
+									img.width * s, img.height * s));
+							}
+
+							return bounds;
+						};
+
 						// Redirects placeholders to current page
 						var graphGetGlobalVariable = tempGraph.getGlobalVariable;
 		
@@ -8339,6 +8666,8 @@
 			// Restores dark mode
 			if (darkStylesheet != null)
 			{
+				graph.shapeForegroundColor = darkFg;
+				graph.shapeBackgroundColor = darkBg;
 				graph.stylesheet = darkStylesheet;
 				graph.refresh();
 			}

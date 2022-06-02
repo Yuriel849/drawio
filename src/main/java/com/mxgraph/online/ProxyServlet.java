@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.apphosting.api.DeadlineExceededException;
 import com.mxgraph.online.Utils.UnsupportedContentException;
+import com.mxgraph.online.Utils.SizeLimitExceededException;
 
 /**
  * Servlet implementation ProxyServlet
@@ -34,11 +35,6 @@ public class ProxyServlet extends HttpServlet
 	private static final Logger log = Logger
 			.getLogger(HttpServlet.class.getName());
 
-	/**
-	 * Buffer size for content pass-through.
-	 */
-	private static int BUFFER_SIZE = 3 * 1024;
-	
 	/**
 	 * GAE deadline is 30 secs so timeout before that to avoid
 	 * HardDeadlineExceeded errors.
@@ -66,7 +62,7 @@ public class ProxyServlet extends HttpServlet
 	{
 		String urlParam = request.getParameter("url");
 
-		if (checkUrlParameter(urlParam))
+		if (Utils.sanitizeUrl(urlParam))
 		{
 			// build the UML source from the compressed request parameter
 			String ref = request.getHeader("referer");
@@ -104,20 +100,25 @@ public class ProxyServlet extends HttpServlet
 				if (connection instanceof HttpURLConnection)
 				{
 					((HttpURLConnection) connection)
-							.setInstanceFollowRedirects(true);
+							.setInstanceFollowRedirects(false);
 					int status = ((HttpURLConnection) connection)
 							.getResponseCode();
 					int counter = 0;
 
 					// Follows a maximum of 6 redirects 
-					while (counter++ <= 6
-							&& (status == HttpURLConnection.HTTP_MOVED_PERM
-									|| status == HttpURLConnection.HTTP_MOVED_TEMP))
+					while (counter++ <= 6 && (int)(status / 10) == 30) //Any redirect status 30x
 					{
-						url = new URL(connection.getHeaderField("Location"));
+						String redirectUrl = connection.getHeaderField("Location");
+
+						if (!Utils.sanitizeUrl(redirectUrl))
+						{
+							break;
+						}
+
+						url = new URL(redirectUrl);
 						connection = url.openConnection();
 						((HttpURLConnection) connection)
-								.setInstanceFollowRedirects(true);
+								.setInstanceFollowRedirects(false);
 						connection.setConnectTimeout(TIMEOUT);
 						connection.setReadTimeout(TIMEOUT);
 
@@ -130,7 +131,14 @@ public class ProxyServlet extends HttpServlet
 					if (status >= 200 && status <= 299)
 					{
 						response.setStatus(status);
-						
+						String contentLength = connection.getHeaderField("Content-Length");
+
+						// If content length is available, use it to enforce maximum size
+						if (contentLength != null && Long.parseLong(contentLength) > Utils.MAX_SIZE)
+						{
+							throw new SizeLimitExceededException();
+						}
+
 						// Copies input stream to output stream
 						InputStream is = connection.getInputStream();
 						byte[] head = (contentAlwaysAllowed(urlParam)) ? emptyBytes
@@ -174,6 +182,12 @@ public class ProxyServlet extends HttpServlet
 						+ ", referer=" + ((ref != null) ? ref : "[null]")
 						+ ", user agent=" + ((ua != null) ? ua : "[null]"));
 			}
+			catch (SizeLimitExceededException e)
+			{
+				response.setStatus(HttpServletResponse.SC_REQUEST_ENTITY_TOO_LARGE);
+
+				throw e;
+			}
 			catch (Exception e)
 			{
 				response.setStatus(
@@ -183,6 +197,8 @@ public class ProxyServlet extends HttpServlet
 						+ ", referer=" + ((ref != null) ? ref : "[null]")
 						+ ", user agent=" + ((ua != null) ? ua : "[null]"));
 				e.printStackTrace();
+
+				throw e;
 			}
 		}
 		else
@@ -203,8 +219,10 @@ public class ProxyServlet extends HttpServlet
 	{
 		if (base64)
 		{
+			int total = 0;
+
 			try (BufferedInputStream in = new BufferedInputStream(is,
-					BUFFER_SIZE))
+					Utils.IO_BUFFER_SIZE))
 			{
 				ByteArrayOutputStream os = new ByteArrayOutputStream();
 			    byte[] buffer = new byte[0xFFFF];
@@ -212,7 +230,14 @@ public class ProxyServlet extends HttpServlet
 				os.write(head, 0, head.length);
 				
 			    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-			    { 
+			    {
+					total += len;
+
+					if (total > Utils.MAX_SIZE)
+					{
+						throw new SizeLimitExceededException();
+					}
+
 			        os.write(buffer, 0, len);
 			    }
 
@@ -222,18 +247,8 @@ public class ProxyServlet extends HttpServlet
 		else
 		{
 			out.write(head);
-			Utils.copy(is, out);
+			Utils.copyRestricted(is, out);
 		}
-	}
-
-	/**
-	 * Checks if the URL parameter is legal.
-	 */
-	public boolean checkUrlParameter(String url)
-	{
-		return url != null
-				&& (url.startsWith("http://") || url.startsWith("https://"))
-				&& !url.toLowerCase().contains("://metadata.google.internal/");
 	}
 
 	/**
@@ -254,19 +269,19 @@ public class ProxyServlet extends HttpServlet
 		String dom = null;
 
 		if (referer != null && referer.toLowerCase()
-				.matches("https?://([a-z0-9,-]+[.])*draw[.]io/.*"))
+				.matches("^https?://([a-z0-9,-]+[.])*draw[.]io/.*"))
 		{
 			dom = referer.toLowerCase().substring(0,
 					referer.indexOf(".draw.io/") + 8);
 		}
 		else if (referer != null && referer.toLowerCase()
-				.matches("https?://([a-z0-9,-]+[.])*diagrams[.]net/.*"))
+				.matches("^https?://([a-z0-9,-]+[.])*diagrams[.]net/.*"))
 		{
 			dom = referer.toLowerCase().substring(0,
 					referer.indexOf(".diagrams.net/") + 13);
 		}
 		else if (referer != null && referer.toLowerCase()
-				.matches("https?://([a-z0-9,-]+[.])*quipelements[.]com/.*"))
+				.matches("^https?://([a-z0-9,-]+[.])*quipelements[.]com/.*"))
 		{
 			dom = referer.toLowerCase().substring(0,
 					referer.indexOf(".quipelements.com/") + 17);
