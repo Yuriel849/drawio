@@ -66,6 +66,106 @@ function parseChild(children) {
     return retVal;
 }
 
+// Notes on XML
+// Ignore mxCell with id="0" and id="1", required in XML for draw.io, but seems unnecessary for Circuitikz
+// Regarding lines
+//    With a line connecting two components, ignore mxPoints under mxGeometry,
+//      instead Array with mxPoints designate the corners of the line,
+//      in order of top to bottom the corners when drawing a line from the source to the target
+//    With a line with only one end connected to a component, mxPoint under mxGeometry indicates location of loose end
+//      If mxCell style attribute only has source attribute, mxPoint labelled targetPoint indicates loose end
+//      If mxCell style attribute only has target attribute, mxPoint labelled sourcePoint indicates loose end
+// 'style' attribute of lines
+//    exitX=0 for source's connection point on left side at rotation=0, if =1 point on right side
+//    exitY=0 for source's connection point on top side at rotation=0, if =1 point on bottom side
+//    exitDx=10 shifts the source's connection point from left side in rightwards direction by one notch of grid
+//    exitDy=10 shifts the source's connection point from top side in downward direction by one notch of grid
+//    entryX / entryY / entryDx / entryDy are the same, but for the target component at rotation=0
+// 'x' and 'y' in mxGeometry under mxCell indicates the upperleft corner of the component at rotation=0
+//    x=10 moves rightwards by one notch of grid, x=40 for moving by one bold line; same for y=10 in downwards direction
+
+// Calculates the appropriate origin point (lower-left corner) for the Circuitikz diagram.
+// Parses the coordinates of components and lines in 'data'
+//    to find smallest x and largest y values in the lower-left corner of drawio diagram.
+// For non-line components, considers coordinates of four rotated vertices.
+// For lines connecting two components, considers vertices listed in Array with mxPoints.
+// FOr lines with loose ends, considers loose end and vertices in Array with mxPoints.
+function getCTOrigin() {
+    let minX = 10000, maxY = 0;
+    for(let i = 0; i < data.mxCells.length; i++) {
+        let cell = data.mxCells[i];
+        let rotatedVertices = [];
+
+        if((cell.attrs.id == 0) || (cell.attrs.id == 1)) { // Ignore mxCell with id="0" and id="1"
+            continue;
+        }
+        if( // Non-line component: 'shape' under 'style', no 'source', no 'target'
+            (cell.attrs.source == undefined) &&
+            (cell.attrs.target == undefined) &&
+            (cell.attrs.style.shape != undefined)
+        ) {
+           rotatedVertices = getRotatedVertices(parseInt(cell.child.attrs.x) + parseInt(cell.child.attrs.width/2), parseInt(cell.child.attrs.y) + parseInt(cell.child.attrs.height/2), cell.child.attrs.width, cell.child.attrs.height, cell.attrs.style.rotation);
+           console.log(rotatedVertices);
+           for(let j = 0; j < rotatedVertices.length; j++) {
+               if(rotatedVertices[j].x < minX) {
+                   minX = rotatedVertices[j].x;
+               }
+               if(rotatedVertices[j].y > maxY) {
+                   maxY = rotatedVertices[j].y;
+               }
+           }
+        } else if ( // Line connecting two components: no 'shape', both 'source' and 'target'
+            (cell.attrs.style.shape == undefined) &&
+            (cell.attrs.source != undefined) &&
+            (cell.attrs.target != undefined)
+        ) {
+            let child = cell.child.child; // Array under mxGeometry under mxCell
+            for(let j = 0; j < child.length; j++) {
+                if(child[j].name == "Array") {
+                    for(let k = 0; k < child[j].child.length; k++) {
+                        if(child[j].child[k].attrs.x < minX) {
+                            minX = child[j].child[k].attrs.x;
+                        }
+                        if(child[j].child[k].attrs.y > maxY) {
+                            maxY = child[j].child[k].attrs.y;
+                        }
+                    }
+                    break;
+                }
+            }
+        } else if ( // Line with loose end: no 'shape', either 'source' or 'target'
+            (cell.attrs.style.shape == undefined) &&
+            (cell.attrs.source != undefined) || (cell.attrs.target != undefined)
+        ) {
+            let child = cell.child.child; // Array under mxGeometry under mxCell
+            for(let j = 0; j < child.length; j++) {
+                // 'source' designated, check mxPoint as="targetPoint"
+                if((cell.attrs.source != undefined && child[j].attrs.as == 'targetPoint') ||
+                    (cell.attrs.target != undefined && child[j].attrs.as == 'sourcePoint')) {
+                    // 'target' designated, check mxPoint as="sourcePoint"
+                    if(child[j].attrs.x < minX) {
+                        minX = child[j].attrs.x;
+                    }
+                    if(child[j].attrs.y > maxY) {
+                        maxY = child[j].attrs.y;
+                    }
+                }
+                if(child[j].name == "Array") {
+                    for(let k = 0; k < child[j].child.length; k++) {
+                        if(child[j].child[k].attrs.x < minX) {
+                            minX = child[j].child[k].attrs.x;
+                        }
+                        if(child[j].child[k].attrs.y > maxY) {
+                            maxY = child[j].child[k].attrs.y;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return { x : parseFloat(minX)-10, y : parseFloat(maxY)+10};
+}
+
 // Calculates the (x,y) coordinates of a rotated rectangle's vertices.
 // Rotation is in the clockwise direction, with the x-axis as 0 degrees.
 //    ex) Rotation of 90 degrees, rotates rectangle clockwise from horizontal to vertical.
