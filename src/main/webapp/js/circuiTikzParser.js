@@ -10,7 +10,7 @@ function parseToCircuiTikz(xmlStr) {
     let mxCells = xml.getElementsByTagName("mxCell"); // Get all mxCells as an array
     for (let i = 0; i < mxCells.length; i++) {
         let cell = mxCells.item(i); // Get one mxCell
-        let component = new CircuitNode(); // JS object for mxCell
+        let component = new CircuitElement(); // JS object for mxCell
 
         // Add attributes to component
         let cellAttr = cell.getAttributeNames(); // Get all attributes of mxCell as an array
@@ -19,13 +19,13 @@ function parseToCircuiTikz(xmlStr) {
             let attrVal = cell.getAttribute(attrName);
             let splitAttr = attrVal.split(';');
             if (splitAttr.length == 1) {
-                component.addAttr(new Attribute(attrName, attrVal));
+                component.addAttr(attrName, attrVal);
             } else { // 'style' attribute when split has length greater than 1
-                let styleArr = [];
+                let styleArr = {};
                 for (let k = 0; k < splitAttr.length-1; k++) { // Last element is "", so ignore
-                    styleArr.push(new Attribute(splitAttr.at(k).split('=').at(0), splitAttr.at(k).split('=').at(1)));
+                    styleArr[splitAttr.at(k).split('=').at(0)] = splitAttr.at(k).split('=').at(1);
                 }
-                component.addAttr(styleArr);
+                component.addAttr(attrName, styleArr);
             }
         }
         // Add child(ren) to component
@@ -43,14 +43,14 @@ function parseChild(children) {
     let retVal;
     if(children.length == 1) {
         child = children.item(0);
-        retVal = new CircuitNode(child.tagName);
+        retVal = new CircuitElement(child.tagName);
 
         // Add attributes to node
         let childAttr = child.getAttributeNames();
         for(let j = 0; j < childAttr.length; j++) {
             let attrName = childAttr.at(j);
             let attrVal = child.getAttribute(attrName);
-            retVal.addAttr(new Attribute(attrName, attrVal));
+            retVal.addAttr(attrName, attrVal);
         }
 
         if(child.hasChildNodes()) {
@@ -60,14 +60,14 @@ function parseChild(children) {
         retVal = [];
         for(let i = 0; i < children.length; i++) {
             let child = children.item(i);
-            let node = new CircuitNode(child.tagName);
+            let node = new CircuitElement(child.tagName);
 
             // Add attributes to node
             let childAttr = child.getAttributeNames();
             for(let j = 0; j < childAttr.length; j++) {
                 let attrName = childAttr.at(j);
                 let attrVal = child.getAttribute(attrName);
-                node.addAttr(new Attribute(attrName, attrVal));
+                node.addAttr(attrName, attrVal);
             }
 
             if(child.hasChildNodes()) {
@@ -79,3 +79,8 @@ function parseChild(children) {
     }
     return retVal;
 }
+
+// XML
+// Ignore mxCell with id="0" and id="1"
+// Ignore mxPoint under mxGeometry (seems to make no difference to drawio diagram even when deleted)
+// When a line, Array with mxPoints designate the corners of the line
