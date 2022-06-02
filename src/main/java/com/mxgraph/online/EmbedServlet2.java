@@ -108,10 +108,6 @@ public class EmbedServlet2 extends HttpServlet
 	 */
 	public static void initLibraries(HashMap<String, String[]> libraries)
 	{
-		libraries.put("rackGeneral",
-				new String[] { SHAPES_PATH + "/rack/mxRack.js",
-						STENCIL_PATH + "/rack/general.xml" });
-		libraries.put("rackF5", new String[] { STENCIL_PATH + "/rack/f5.xml" });
 		libraries.put("basic", new String[] { SHAPES_PATH + "/mxBasic.js",
 				STENCIL_PATH + "/basic.xml" });
 		libraries.put("electrical/transmission",
@@ -122,14 +118,8 @@ public class EmbedServlet2 extends HttpServlet
 						STENCIL_PATH + "/floorplan.xml" });
 		libraries.put("gmdl", new String[] { SHAPES_PATH + "/mxGmdl.js",
 				STENCIL_PATH + "/gmdl.xml" });
-		libraries.put("cabinets", new String[] { SHAPES_PATH + "/mxCabinets.js",
-				STENCIL_PATH + "/cabinets.xml" });
 		libraries.put("eip", new String[] { SHAPES_PATH + "/mxEip.js",
 				STENCIL_PATH + "/eip.xml" });
-		libraries.put("networks", new String[] { SHAPES_PATH + "/mxNetworks.js",
-				STENCIL_PATH + "/networks.xml" });
-		libraries.put("aws3d", new String[] { SHAPES_PATH + "/mxAWS3D.js",
-				STENCIL_PATH + "/aws3d.xml" });
 		libraries.put("pid2inst",
 				new String[] { SHAPES_PATH + "/pid2/mxPidInstruments.js" });
 		libraries.put("pid2misc",
