@@ -7804,7 +7804,6 @@
 	// Required to avoid 404 for mockup.xml since naming of mxgraph.mockup.anchor does not contain
 	// buttons even though it is defined in the mxMockupButtons.js file. This could only be fixed
 	// with aliases for existing shapes or aliases for basenames, but this is essentially the same.
-	mxStencilRegistry.libraries['arrows2'] = [SHAPES_PATH + '/mxArrows.js'];
 	mxStencilRegistry.libraries['cisco19'] = [SHAPES_PATH + '/mxCisco19.js', STENCIL_PATH + '/cisco19.xml'];
 	mxStencilRegistry.libraries['cisco_safe'] = [SHAPES_PATH + '/mxCiscoSafe.js', STENCIL_PATH + '/cisco_safe/architecture.xml', STENCIL_PATH + '/cisco_safe/business_icons.xml', STENCIL_PATH + '/cisco_safe/capability.xml', STENCIL_PATH + '/cisco_safe/design.xml', STENCIL_PATH + '/cisco_safe/iot_things_icons.xml', STENCIL_PATH + '/cisco_safe/people_places_things_icons.xml', STENCIL_PATH + '/cisco_safe/security_icons.xml', STENCIL_PATH + '/cisco_safe/technology_icons.xml', STENCIL_PATH + '/cisco_safe/threat.xml'];
 	mxStencilRegistry.libraries['kubernetes'] = [SHAPES_PATH + '/mxKubernetes.js', STENCIL_PATH + '/kubernetes.xml'];

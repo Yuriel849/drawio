@@ -108,7 +108,6 @@ public class EmbedServlet2 extends HttpServlet
 	 */
 	public static void initLibraries(HashMap<String, String[]> libraries)
 	{
-		libraries.put("arrows2", new String[] { SHAPES_PATH + "/mxArrows.js" });
 		libraries.put("rackGeneral",
 				new String[] { SHAPES_PATH + "/rack/mxRack.js",
 						STENCIL_PATH + "/rack/general.xml" });

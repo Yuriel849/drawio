@@ -501,8 +501,7 @@
 		// http://www.alderg.com/merge.html for creating a vertical stack of PNG images if multiple sidebars are part of an entry.
 
 		var stdEntries = [{title: mxResources.get('general'), id: 'general', image: IMAGE_PATH + '/sidebar-general.png'},
-			{title: mxResources.get('basic'), id: 'basic', image: IMAGE_PATH + '/sidebar-basic.png'},
-			{title: mxResources.get('arrows'), id: 'arrows2', image: IMAGE_PATH + '/sidebar-arrows2.png'}];
+			{title: mxResources.get('basic'), id: 'basic', image: IMAGE_PATH + '/sidebar-basic.png'}];
 		
 		if (urlParams['sketch'] == '1')
 		{
@@ -1075,10 +1074,6 @@
 		this.addMiscPalette(false);	
 		this.addAdvancedPalette(false);
 		this.addBasicPalette();
-		this.addStencilPalette('arrows', mxResources.get('arrows'), dir + '/arrows.xml',
-				';html=1;' + mxConstants.STYLE_VERTICAL_LABEL_POSITION + '=bottom;' + mxConstants.STYLE_VERTICAL_ALIGN + '=top;' + mxConstants.STYLE_STROKEWIDTH + '=2;strokeColor=#000000;',
-				null, null, null, null, null, 'arrows');
-		this.addArrows2Palette();
 		this.setCurrentSearchEntryLibrary();
 		this.addKubernetesPalette();
 		this.addAlliedTelesisPalette();
