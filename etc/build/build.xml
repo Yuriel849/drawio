@@ -87,8 +87,6 @@
 				<file name="Sidebar.js" />
 				<file name="Sidebar-Advanced.js" />
 				<file name="Sidebar-AlliedTelesis.js" />
-				<file name="Sidebar-ArchiMate.js" />
-				<file name="Sidebar-ArchiMate3.js" />
 				<file name="Sidebar-Arrows2.js" />
 				<file name="Sidebar-AWS.js" />
 				<file name="Sidebar-AWS3.js" />
@@ -98,7 +96,6 @@
 				<file name="Sidebar-Azure.js" />
 				<file name="Sidebar-Azure2.js" />
 				<file name="Sidebar-Basic.js" />
-				<file name="Sidebar-BPMN.js" />
 				<file name="Sidebar-Cabinet.js" />
 				<file name="Sidebar-Cisco.js" />
 				<file name="Sidebar-Cisco19.js" />
@@ -116,14 +113,12 @@
 				<file name="Sidebar-IBM.js" />
 				<file name="Sidebar-Infographic.js" />
 				<file name="Sidebar-Kubernetes.js" />
-				<file name="Sidebar-LeanMapping.js" />
 				<file name="Sidebar-MSCAE.js" />
 				<file name="Sidebar-Network.js" />
 				<file name="Sidebar-Office.js" />
 				<file name="Sidebar-PID.js" />
 				<file name="Sidebar-Rack.js" />
 				<file name="Sidebar-Signs.js" />
-				<file name="Sidebar-Sysml.js" />
 				<file name="Sidebar-ThreatModeling.js" />
 				<file name="Sidebar-Veeam.js" />
 				<file name="Sidebar-Veeam2.js" />
