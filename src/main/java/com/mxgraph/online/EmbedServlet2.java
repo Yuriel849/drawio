@@ -114,7 +114,6 @@ public class EmbedServlet2 extends HttpServlet
 		libraries.put("bpmn",
 				new String[] { SHAPES_PATH + "/bpmn/mxBpmnShape2.js",
 						STENCIL_PATH + "/bpmn.xml" });
-		libraries.put("er", new String[] { SHAPES_PATH + "/er/mxER.js" });
 		libraries.put("ios",
 				new String[] { SHAPES_PATH + "/mockup/mxMockupiOS.js" });
 		libraries.put("rackGeneral",
@@ -126,11 +125,6 @@ public class EmbedServlet2 extends HttpServlet
 						STENCIL_PATH + "/lean_mapping.xml" });
 		libraries.put("basic", new String[] { SHAPES_PATH + "/mxBasic.js",
 				STENCIL_PATH + "/basic.xml" });
-		libraries.put("ios7icons",
-				new String[] { STENCIL_PATH + "/ios7/icons.xml" });
-		libraries.put("ios7ui",
-				new String[] { SHAPES_PATH + "/ios7/mxIOS7Ui.js",
-						STENCIL_PATH + "/ios7/misc.xml" });
 		libraries.put("electrical/transmission",
 				new String[] { SHAPES_PATH + "/mxElectrical.js",
 						STENCIL_PATH + "/electrical/transmission.xml" });
