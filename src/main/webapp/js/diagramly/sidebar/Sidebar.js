@@ -514,7 +514,6 @@
 		this.entries = [{title: mxResources.get('standard'), entries: stdEntries},
             			{title: mxResources.get('software'),
             			entries: [
-								{title: 'Atlassian', id: 'atlassian', image: IMAGE_PATH + '/sidebar-atlassian.png'},
 								{title: mxResources.get('bootstrap'), id: 'bootstrap', image: IMAGE_PATH + '/sidebar-bootstrap.png'},
 								{title: 'C4', id: 'c4', image: IMAGE_PATH + '/sidebar-c4.png'},
 								{title: 'Data Flow Diagram', id: 'dfd', image: IMAGE_PATH + '/sidebar-dfd.png'},
@@ -1098,7 +1097,6 @@
 				null, null, null, null, null, 'arrows');
 		this.addArrows2Palette();
 		this.setCurrentSearchEntryLibrary();
-		this.addAtlassianPalette();
 		this.addBootstrapPalette();
 		this.addDFDPalette();
 		this.addErPalette();
