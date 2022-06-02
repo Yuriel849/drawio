@@ -108,14 +108,10 @@ public class EmbedServlet2 extends HttpServlet
 	 */
 	public static void initLibraries(HashMap<String, String[]> libraries)
 	{
-		libraries.put("mockup",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupButtons.js" });
 		libraries.put("arrows2", new String[] { SHAPES_PATH + "/mxArrows.js" });
 		libraries.put("bpmn",
 				new String[] { SHAPES_PATH + "/bpmn/mxBpmnShape2.js",
 						STENCIL_PATH + "/bpmn.xml" });
-		libraries.put("ios",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupiOS.js" });
 		libraries.put("rackGeneral",
 				new String[] { SHAPES_PATH + "/rack/mxRack.js",
 						STENCIL_PATH + "/rack/general.xml" });
@@ -128,25 +124,6 @@ public class EmbedServlet2 extends HttpServlet
 		libraries.put("electrical/transmission",
 				new String[] { SHAPES_PATH + "/mxElectrical.js",
 						STENCIL_PATH + "/electrical/transmission.xml" });
-		libraries.put("mockup/buttons",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupButtons.js" });
-		libraries.put("mockup/containers",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupContainers.js" });
-		libraries.put("mockup/forms",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupForms.js" });
-		libraries.put("mockup/graphics",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupGraphics.js",
-						STENCIL_PATH + "/mockup/misc.xml" });
-		libraries.put("mockup/markup",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupMarkup.js" });
-		libraries.put("mockup/misc",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupMisc.js",
-						STENCIL_PATH + "/mockup/misc.xml" });
-		libraries.put("mockup/navigation",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupNavigation.js",
-						STENCIL_PATH + "/mockup/misc.xml" });
-		libraries.put("mockup/text",
-				new String[] { SHAPES_PATH + "/mockup/mxMockupText.js" });
 		libraries.put("floorplan",
 				new String[] { SHAPES_PATH + "/mxFloorplan.js",
 						STENCIL_PATH + "/floorplan.xml" });
