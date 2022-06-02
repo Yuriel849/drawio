@@ -113,22 +113,6 @@ public class EmbedServlet2 extends HttpServlet
 		libraries.put("electrical/transmission",
 				new String[] { SHAPES_PATH + "/mxElectrical.js",
 						STENCIL_PATH + "/electrical/transmission.xml" });
-		libraries.put("floorplan",
-				new String[] { SHAPES_PATH + "/mxFloorplan.js",
-						STENCIL_PATH + "/floorplan.xml" });
-		libraries.put("gmdl", new String[] { SHAPES_PATH + "/mxGmdl.js",
-				STENCIL_PATH + "/gmdl.xml" });
-		libraries.put("eip", new String[] { SHAPES_PATH + "/mxEip.js",
-				STENCIL_PATH + "/eip.xml" });
-		libraries.put("pid2inst",
-				new String[] { SHAPES_PATH + "/pid2/mxPidInstruments.js" });
-		libraries.put("pid2misc",
-				new String[] { SHAPES_PATH + "/pid2/mxPidMisc.js",
-						STENCIL_PATH + "/pid/misc.xml" });
-		libraries.put("pid2valves",
-				new String[] { SHAPES_PATH + "/pid2/mxPidValves.js" });
-		libraries.put("pidFlowSensors",
-				new String[] { STENCIL_PATH + "/pid/flow_sensors.xml" });
 	}
 
 	/**

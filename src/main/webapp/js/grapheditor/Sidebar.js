@@ -96,7 +96,6 @@ Sidebar.prototype.init = function()
 	this.addSearchPalette(true);
 	this.addGeneralPalette(true);
 	this.addMiscPalette(false);
-	this.addAdvancedPalette(false);
 	this.addBasicPalette(dir);
 	this.setCurrentSearchEntryLibrary();
 };
@@ -1421,15 +1420,6 @@ Sidebar.prototype.addMiscPalette = function(expand)
 	];
 
 	this.addPaletteFunctions('misc', mxResources.get('misc'), (expand != null) ? expand : true, fns);
-	this.setCurrentSearchEntryLibrary();
-};
-/**
- * Adds the container palette to the sidebar.
- */
-Sidebar.prototype.addAdvancedPalette = function(expand)
-{
-	this.setCurrentSearchEntryLibrary('general', 'advanced');
-	this.addPaletteFunctions('advanced', mxResources.get('advanced'), (expand != null) ? expand : false, this.createAdvancedShapes());
 	this.setCurrentSearchEntryLibrary();
 };
 
