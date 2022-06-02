@@ -107,9 +107,6 @@ Sidebar.prototype.init = function()
 	this.addUmlPalette(false);
 	this.addBpmnPalette(dir, false);
 	
-	this.setCurrentSearchEntryLibrary('flowchart');
-	this.addStencilPalette('flowchart', 'Flowchart', dir + '/flowchart.xml',
-		';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
 	this.setCurrentSearchEntryLibrary();
 	
 	this.setCurrentSearchEntryLibrary('clipart');
