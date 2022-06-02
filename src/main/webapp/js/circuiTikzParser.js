@@ -1,7 +1,89 @@
 // Automatically called by drawio's JS code.
 // Find in app.min.js by searching for the function name.
 // Parses the XML in drawio and saves XML elements in a global JS object named 'data'.
+// Simpler version than 'parseToCiruiTikzFull()' which omits unnecessary data.
 function parseToCircuiTikz(xmlStr) {
+    // Parse XML string into XML format
+    let parser = new DOMParser();
+    xml = parser.parseFromString(xmlStr, "text/xml");
+    // 'data': JS object of array of JS objects (one object for each circuit component)
+    data = new CircuitData();
+
+    let mxCells = xml.getElementsByTagName("mxCell"); // Get all mxCells as an array
+    for (let i = 0; i < mxCells.length; i++) { // Process each mxCell in order
+        let component = {}; // JS object to hold all data from one mxCell
+        let cell = mxCells.item(i); // Get one mxCell
+        if(cell.id == "0" || cell.id == "1") { continue; }  // Ignore mxCell with id="0" and id="1"
+        let attrNames = cell.getAttributeNames(); // Get all attribute names as an array
+
+        // Line connecting two components: no 'shape', both 'source' and 'target'
+        //      From attrs: id, value, everything in style, source, target
+        //      From Array in mxGeometry: Array of (x,y) coordinates in mxPoint
+        //      Ignore mxPoint in mxGeometry, only mxPoint inside Array
+        // Line with loose end: no 'shape', either 'source' or 'target'
+        //      From attrs: id, value, everything in style, source/target
+        //      From Array in mxGeometry: Array of (x,y) coordinates in mxPoint
+        //      If only source, (x,y) from mxPoint in mxGeometry labelled targetPoint
+        //      If only target, (x,y) from mxPoint in mxGeometry labelled sourcePoint
+        // Non-line component: 'shape' under 'style', no 'source' and no 'target'
+        //      From attrs: id, value, everything in style
+        //      From mxGeometry: x, y, width, height
+
+        if( cell.getAttribute('source') != undefined &&
+            cell.getAttribute('target') != undefined
+        ) { // Line: mxCell has both 'source' and 'target' attributes
+            //      From Array in mxGeometry: Array of (x,y) coordinates in mxPoint
+            //      Ignore mxPoint in mxGeometry, only mxPoint inside Array
+            for (let j = 0; j < attrNames.length; j++) { // Get from attrs
+                if(['id', 'value', 'source', 'target'].includes(attrNames[j]) {
+                    component[attrNames[j]] = cell.getAttribute(attrNames[j]);
+                } else if (attrNames[j] == 'style') {
+                    let splitStyle = cell.getAttribute(attrNames[j]).split(';');
+                    for (let k = 0; k < splitStyle.length-1; k++) { // Last element is "", so ignore
+                        component[splitStyle.at(k).split('=').at(0)] = splitStyle.at(k).split('=').at(1);
+                    }
+                }
+            }
+            let mxG = cell.children[0]; // mxGeometry, as only child of mxCell
+            let mxGAttrNames = mxG.getAttributeNames();
+            for(let j = 0; j < mxGAttrNames.length; j++) { // Get from mxGeometry
+                if(['x', 'y', 'width', 'height'].includes(mxGAttrNames[j])) {
+                    component[mxGAttrNames[j]] = parseFloat(mxG.getAttribute(mxGAttrNames[j]));
+                }
+            }
+
+
+        } else if () { // Line with loose end: mxCell has either 'source' or 'target' attribute
+
+        } else { // Non-line component
+            for (let j = 0; j < attrNames.length; j++) { // Get from attrs
+                if(['id', 'value'].includes(attrNames[j]) {
+                    component[attrNames[j]] = cell.getAttribute(attrNames[j]);
+                } else if (attrNames[j] == 'style') {
+                    let splitStyle = cell.getAttribute(attrNames[j]).split(';');
+                    for (let k = 0; k < splitStyle.length-1; k++) { // Last element is "", so ignore
+                        component[splitStyle.at(k).split('=').at(0)] = splitStyle.at(k).split('=').at(1);
+                    }
+                }
+            }
+            let mxG = cell.children[0]; // mxGeometry, as only child of mxCell
+            let mxGAttrNames = mxG.getAttributeNames();
+            for(let j = 0; j < mxGAttrNames.length; j++) { // Get from mxGeometry
+                if(['x', 'y', 'width', 'height'].includes(mxGAttrNames[j])) {
+                    component[mxGAttrNames[j]] = parseFloat(mxG.getAttribute(mxGAttrNames[j]));
+                }
+            }
+        }
+
+        data.addComponent(component);
+    }
+}
+
+// Automatically called by drawio's JS code.
+// Find in app.min.js by searching for the function name.
+// Parses the XML in drawio and saves XML elements in a global JS object named 'data'.
+// All XML elements and the XML hierarchy are saved in full as a JS object.
+function parseToCircuiTikzFull(xmlStr) {
     let parser = new DOMParser();
     xml = parser.parseFromString(xmlStr, "text/xml");
 
@@ -34,7 +116,7 @@ function parseToCircuiTikz(xmlStr) {
 
         data.addComponent(component);
     }
-};
+}
 
 // Parses the XML in 'children' and called recursively to process children's children.
 // Parameter 'children': HTMLCollection
