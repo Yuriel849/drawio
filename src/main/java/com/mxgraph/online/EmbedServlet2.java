@@ -156,9 +156,6 @@ public class EmbedServlet2 extends HttpServlet
 		libraries.put("floorplan",
 				new String[] { SHAPES_PATH + "/mxFloorplan.js",
 						STENCIL_PATH + "/floorplan.xml" });
-		libraries.put("bootstrap",
-				new String[] { SHAPES_PATH + "/mxBootstrap.js",
-						STENCIL_PATH + "/bootstrap.xml" });
 		libraries.put("gmdl", new String[] { SHAPES_PATH + "/mxGmdl.js",
 				STENCIL_PATH + "/gmdl.xml" });
 		libraries.put("cabinets", new String[] { SHAPES_PATH + "/mxCabinets.js",
